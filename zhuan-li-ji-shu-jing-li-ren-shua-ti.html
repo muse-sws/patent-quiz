@@ -1,0 +1,837 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:,">
+<title>专利转化运用技术经理人刷题（初级 · 中级 · 高级）</title>
+<style>
+:root{
+  --bg:#f2f4f7; --surface:#ffffff; --surface2:#eef2f5; --ink:#17212b; --muted:#5b6b7a; --line:#d9e1e8;
+  --navy:#12314e; --navy2:#1b4a73; --teal:#0e7c6b; --teal-bg:#e6f4f1; --amber:#b7791f; --amber-bg:#fdf3e0;
+  --red:#c0392b; --red-bg:#fdecea; --green:#1e7d32; --green-bg:#e8f5e9; --radius:14px;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#0f161d; --surface:#1a242f; --surface2:#222f3d; --ink:#e8eef3; --muted:#9db0c0; --line:#334454;
+  --navy:#7fb0d9; --navy2:#a8cbe8; --teal:#4cc2ae; --teal-bg:#14332e; --amber:#e8b34b; --amber-bg:#3a2f14;
+  --red:#ff8a7a; --red-bg:#3d1f1a; --green:#7bc47f; --green-bg:#1c3320; }
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC",system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.6;overscroll-behavior-y:none}
+button{font:inherit;cursor:pointer;min-height:44px;touch-action:manipulation}
+input,select,textarea{font-size:16px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px 40px}
+.hero{background:var(--navy);color:#fff;margin:0 -16px;padding:28px 16px 24px}
+@media (prefers-color-scheme: dark){.hero{background:#16283c}}
+.hero-in{max-width:1080px;margin:0 auto}
+.hero .tag{display:inline-block;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);padding:3px 10px;border-radius:999px;font-size:13px}
+.hero h1{font-size:28px;line-height:1.3;margin:12px 0 8px;font-weight:800;letter-spacing:.5px}
+.hero p{margin:0;color:#d6e4f0;font-size:15px;max-width:720px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.chip{background:#fff;color:#12314e;border-radius:10px;padding:8px 12px;font-weight:700;font-size:14px}
+.chip span{font-weight:400;color:#5b6b7a;font-size:13px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}
+@media(max-width:720px){.grid2{grid-template-columns:1fr}.hero h1{font-size:24px}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+.card h2{margin:0 0 6px;font-size:19px}
+.card p{margin:0 0 14px;color:var(--muted);font-size:14px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;border-radius:10px;border:1px solid transparent;padding:10px 20px;font-weight:700;font-size:16px;text-decoration:none}
+.btn-primary{background:var(--teal);color:#fff;width:100%}
+.btn-navy{background:var(--navy);color:#fff}
+@media (prefers-color-scheme: dark){.btn-navy{background:#2a4d6e}}
+.btn-ghost{background:var(--surface);color:var(--ink);border-color:var(--line)}
+.btn-danger{background:var(--red);color:#fff}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.modlist{display:grid;gap:10px}
+.modbtn{display:flex;justify-content:space-between;align-items:center;text-align:left;background:var(--surface2);border:1px solid var(--line);border-radius:10px;padding:12px 14px;width:100%;color:var(--ink)}
+.modbtn b{font-size:15px}.modbtn small{color:var(--muted);display:block;font-weight:400}
+.modbtn .cnt{font-weight:700;color:var(--teal);white-space:nowrap;margin-left:10px}
+.note{background:var(--amber-bg);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px;margin-top:16px;font-size:14px}
+.note b{color:var(--amber)}
+.hidden{display:none!important}
+.topbar{position:sticky;top:0;z-index:20;background:var(--surface);border-bottom:1px solid var(--line);margin:0 -16px;padding:10px 16px}
+.topbar-in{max-width:1080px;margin:0 auto;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.timer{font-variant-numeric:tabular-nums;font-weight:800;font-size:18px;background:var(--surface2);border-radius:8px;padding:4px 12px}
+.timer.low{background:var(--red-bg);color:var(--red)}
+.progress{flex:1;min-width:120px;height:10px;background:var(--surface2);border-radius:99px;overflow:hidden}
+.progress i{display:block;height:100%;background:var(--teal);width:0;transition:width .3s}
+.examgrid{display:grid;grid-template-columns:1fr 280px;gap:16px;margin-top:16px;align-items:start}
+@media(max-width:860px){.examgrid{grid-template-columns:1fr}}
+.qmeta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.qmeta span{font-size:13px;background:var(--teal-bg);color:var(--teal);border-radius:999px;padding:2px 10px;font-weight:700}
+.qtext{font-size:18px;font-weight:700;line-height:1.55;margin:4px 0 16px}
+.opts{display:grid;gap:10px}
+.opt{display:flex;gap:12px;align-items:flex-start;text-align:left;width:100%;background:var(--surface);border:2px solid var(--line);border-radius:12px;padding:14px;color:var(--ink);font-size:16px;line-height:1.5}
+.opt .k{flex:0 0 28px;width:28px;height:28px;border-radius:50%;background:var(--surface2);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;margin-top:1px}
+.opt.sel{border-color:var(--teal);background:var(--teal-bg)}
+.opt.sel .k{background:var(--teal);color:#fff}
+.opt.right{border-color:var(--green);background:var(--green-bg)}
+.opt.right .k{background:var(--green);color:#fff}
+.opt.wrong{border-color:var(--red);background:var(--red-bg)}
+.opt.wrong .k{background:var(--red);color:#fff}
+.feedback{margin-top:14px;border-radius:10px;padding:12px 14px;font-size:14px;display:none}
+.feedback.show{display:block}
+.feedback.ok{background:var(--green-bg)}.feedback.no{background:var(--red-bg)}
+.navrow{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+.navrow .btn{flex:1;min-width:120px}
+.palette h3{margin:0 0 10px;font-size:15px}
+.pal{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.pal button{height:40px;min-height:40px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font-weight:600;padding:0}
+.pal button.done{background:var(--teal);color:#fff;border-color:var(--teal)}
+.pal button.cur{outline:3px solid var(--amber);outline-offset:1px}
+.pal button.flagged{box-shadow:inset 0 -4px 0 var(--amber)}
+.legend{font-size:13px;color:var(--muted);margin-top:10px}
+.scorewrap{text-align:center;padding:28px 20px}
+.score{font-size:64px;font-weight:800;line-height:1;color:var(--navy)}
+.score small{font-size:20px;color:var(--muted)}
+.pass{display:inline-block;margin-top:10px;padding:4px 16px;border-radius:999px;font-weight:800}
+.pass.y{background:var(--green-bg);color:var(--green)}.pass.n{background:var(--red-bg);color:var(--red)}
+.comment{font-size:17px;margin:14px auto 4px;max-width:560px}
+.stats{display:flex;justify-content:center;gap:22px;flex-wrap:wrap;margin:16px 0;color:var(--muted);font-size:14px}
+.stats b{color:var(--ink);font-size:18px;display:block}
+.reviewitem{border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);padding:16px;margin-top:12px}
+.reviewitem .rq{font-weight:700;font-size:16px}
+.ansline{font-size:14px;margin-top:8px}
+.ansline .yours{color:var(--red);font-weight:700}.ansline .corr{color:var(--green);font-weight:700}
+.exp{font-size:14px;color:var(--muted);background:var(--surface2);border-radius:8px;padding:10px 12px;margin-top:10px}
+.modal{position:fixed;inset:0;background:rgba(10,20,30,.55);display:none;align-items:center;justify-content:center;z-index:50;padding:16px}
+.modal.show{display:flex}
+.modal .box{background:var(--surface);border-radius:14px;padding:22px;max-width:420px;width:100%}
+.modal h3{margin:0 0 8px}.modal p{color:var(--muted);font-size:14px}
+footer{margin-top:28px;border-top:1px solid var(--line);padding-top:14px;color:var(--muted);font-size:13px}
+.secttl{font-size:17px;margin:22px 0 4px}
+/* ===== 层级选择 ===== */
+.lvltitle{font-size:17px;font-weight:800;margin:20px 0 4px}
+.lvlsub{color:var(--muted);font-size:14px;margin:0 0 12px}
+.lvlgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.lvlbtn{text-align:left;background:var(--surface);border:2px solid var(--line);border-radius:var(--radius);padding:16px;color:var(--ink);width:100%}
+.lvlbtn b{font-size:19px;display:block}
+.lvlbtn small{color:var(--muted);display:block;font-weight:400;font-size:13px;line-height:1.55;margin-top:4px}
+.lvlbtn .lc{font-weight:800;color:var(--teal);font-size:14px;display:block;margin-top:8px}
+.lvlbtn.on{border-color:var(--teal);background:var(--teal-bg)}
+.lvlbtn.on .lc{color:var(--teal)}
+@media(max-width:720px){.lvlgrid{grid-template-columns:1fr;gap:10px}.lvlbtn{min-height:64px;padding:14px}.lvlbtn b{font-size:17px}}
+/* ===== 手機端專用優化 ===== */
+.mobilebar{display:none}
+.palette-close{display:none}
+.palette-scrim{display:none}
+@media(max-width:860px){
+  .palette{position:fixed;left:0;right:0;bottom:0;top:auto;z-index:60;max-height:72dvh;overflow:auto;border-radius:18px 18px 0 0;padding:18px 16px calc(16px + env(safe-area-inset-bottom));transform:translateY(105%);transition:transform .28s ease;box-shadow:0 -12px 40px rgba(0,0,0,.25)}
+  .palette.open{transform:translateY(0)}
+  .palette-close{display:inline-flex;align-items:center;justify-content:center;min-height:36px;padding:4px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface2);color:var(--ink);font-weight:700;font-size:14px}
+  .palette-scrim{display:block;position:fixed;inset:0;background:rgba(10,20,30,.5);z-index:55;opacity:0;pointer-events:none;transition:opacity .25s}
+  .palette-scrim.show{opacity:1;pointer-events:auto}
+  .palette h3{display:flex;align-items:center;justify-content:space-between}
+  .pal{grid-template-columns:repeat(5,1fr);gap:8px}
+  .pal button{height:48px;min-height:48px;font-size:15px;border-radius:10px}
+  .mobilebar{display:flex;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--surface);border-top:1px solid var(--line);padding:10px 12px calc(10px + env(safe-area-inset-bottom));box-shadow:0 -6px 24px rgba(0,0,0,.08)}
+  .mobilebar button{flex:1;min-height:50px;border-radius:12px;font-weight:800;font-size:15px;padding:6px 4px}
+  .mobilebar .mb-prev,.mobilebar .mb-pal{background:var(--surface);color:var(--ink);border:1px solid var(--line)}
+  .mobilebar .mb-next{background:var(--navy);color:#fff;border:1px solid transparent}
+  @media (prefers-color-scheme: dark){.mobilebar .mb-next{background:#2a4d6e}}
+  .mobilebar .mb-pal{flex:0 0 74px;font-size:14px}
+  .mobilebar .mb-prev{flex:1.1}
+  .mobilebar #mbFlag.active{background:var(--amber-bg);border-color:var(--amber);color:var(--amber)}
+  body.in-exam{padding-bottom:84px}
+  /* 考試頁頂欄：兩行緊湊佈局，不再擠成一團 */
+  .topbar{padding:8px 12px}
+  .topbar-in{display:grid;grid-template-columns:1fr auto auto;grid-template-areas:"title timer submit" "prog prog ptext";column-gap:10px;row-gap:8px;align-items:center}
+  #examTitle{grid-area:title;font-size:15px;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .timer{grid-area:timer;font-size:16px;padding:4px 10px}
+  #btnSubmitTop{grid-area:submit;min-height:40px!important}
+  .progress{grid-area:prog;min-width:0;height:8px}
+  #progText{grid-area:ptext;font-size:13px!important;white-space:nowrap;justify-self:end}
+  .examgrid{margin-top:12px;gap:12px}
+  /* 桌面版的上一題/下一題在手機端隱藏，改用底部固定欄，避免來回滾動 */
+  #view-exam .navrow{display:none}
+}
+@media(max-width:720px){
+  .wrap{padding:0 12px 32px}
+  .hero{margin:0 -12px;padding:22px 14px 20px;border-radius:0 0 18px 18px}
+  .hero h1{font-size:23px;line-height:1.35;margin:10px 0 8px}
+  .hero p{font-size:14px;line-height:1.65}
+  .hero .tag{font-size:12px}
+  .chips{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
+  .chip{padding:9px 10px;font-size:15px;border-radius:10px;text-align:center}
+  .chip:last-child{grid-column:1/-1}
+  .chip span{display:block;font-size:12px;margin-top:1px}
+  .grid2{gap:12px;margin-top:14px}
+  .card{padding:16px 14px;border-radius:16px}
+  .card h2{font-size:18px}
+  .btn{min-height:52px;font-size:16px;border-radius:12px}
+  .btn-primary{width:100%}
+  .modlist{gap:10px}
+  .modbtn{min-height:64px;padding:14px;border-radius:12px;gap:10px}
+  .modbtn:active{background:var(--teal-bg)}
+  .modbtn b{font-size:16px}
+  .modbtn small{font-size:13px;line-height:1.45;margin-top:2px}
+  .note{padding:13px 14px;font-size:13.5px;line-height:1.65;border-radius:14px}
+  /* 題目區：字夠大、選項好點 */
+  .qmeta{gap:6px;margin-bottom:8px}
+  .qmeta span{font-size:12px;padding:3px 9px}
+  .qtext{font-size:17.5px;line-height:1.65;margin:6px 0 14px;word-break:break-word}
+  .opts{gap:10px}
+  .opt{min-height:58px;padding:14px 13px;font-size:16px;line-height:1.55;border-radius:14px;align-items:center}
+  .opt:active{transform:scale(.99)}
+  .opt .k{flex-basis:30px;width:30px;height:30px;font-size:15px;margin-top:0}
+  .feedback{font-size:14.5px;line-height:1.6;padding:12px;border-radius:12px}
+  /* 成績頁 */
+  .scorewrap{padding:22px 14px}
+  .score{font-size:54px}
+  .score small{font-size:17px}
+  .comment{font-size:15.5px;line-height:1.65}
+  .stats{display:grid;grid-template-columns:1fr 1fr;gap:14px 10px;text-align:center;margin:18px 0 6px}
+  .stats b{font-size:20px}
+  #view-result .navrow{flex-direction:column;gap:10px}
+  #view-result .navrow .btn{flex:1 1 auto!important;width:100%;min-height:52px}
+  .reviewitem{padding:14px;border-radius:14px}
+  .reviewitem .rq{font-size:15.5px;line-height:1.6}
+  .ansline{font-size:14px;line-height:1.6;word-break:break-word}
+  .exp{font-size:13.5px;line-height:1.65}
+  footer{font-size:12.5px;line-height:1.7;padding-bottom:8px}
+  /* 交卷彈窗改成底部彈出，單手好按 */
+  .modal{align-items:flex-end;padding:0}
+  .modal .box{max-width:none;width:100%;border-radius:18px 18px 0 0;padding:20px 16px calc(16px + env(safe-area-inset-bottom))}
+  .modal .navrow{flex-direction:column-reverse;gap:10px}
+  .modal .navrow .btn{width:100%;min-height:52px}
+}
+@media(max-width:380px){
+  .hero h1{font-size:21px}
+  .qtext{font-size:16.5px}
+  .opt{font-size:15.5px;padding:12px 11px}
+  .pal{grid-template-columns:repeat(5,1fr)}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- 首页 -->
+<section id="view-home">
+  <div class="hero"><div class="hero-in">
+    <span class="tag" id="heroTag">广东省 · 初级 · 2026 备考</span>
+    <h1 id="heroTitle">专利转化运用技术经理人（初级）刷题</h1>
+    <p>依据广东省市场监督管理局《广东省专利转化运用技术经理人培训指南（试行）》整理，初级、中级、高级三个层级各有对应题库。免填姓名，打开就能练；每次抽题和选项顺序都不一样。</p>
+    <div class="chips">
+      <div class="chip">50 题 <span>模拟考试卷</span></div>
+      <div class="chip">90 分钟 <span>考试时长</span></div>
+      <div class="chip">满分 100 分 <span>每题 2 分</span></div>
+      <div class="chip">60 分 <span>及格线</span></div>
+      <div class="chip">题库 <span id="bankCount">—</span> 题</div>
+    </div>
+  </div></div>
+
+  <h2 class="lvltitle">选择层级</h2>
+  <p class="lvlsub">先选你要备考的层级，下面的模拟考试和章节练习都会换成该层级的题目。层级越高，题目越偏向评估、运营、金融与战略实务。</p>
+  <div class="lvlgrid" id="lvlGrid"></div>
+
+  <div class="grid2">
+    <div class="card">
+      <h2>📝 模拟考试</h2>
+      <p id="examDesc">按正式考核规格组卷：从当前层级题库随机抽 50 题，选项顺序打乱，限时 90 分钟。答完一题自动跳到下一题，交卷后立即出分数和评语，并可逐题查看错题、正确选项与解析。</p>
+      <button class="btn btn-primary" id="btnStartExam">开始模拟考试</button>
+      <p style="margin-top:10px;font-size:13px">参考广东已办培训的考核做法：正式考核为笔试加案例分析，考核合格者纳入人才库。本页为笔试部分的模拟练习。</p>
+    </div>
+    <div class="card">
+      <h2>📚 章节练习</h2>
+      <p>按培训指南四个模块逐个练，答完立即看对错和解析，适合先打基础再模考。</p>
+      <div class="modlist" id="modList"></div>
+    </div>
+  </div>
+
+  <div class="note"><b>使用说明：</b>不用注册、不用填名字，成绩只在你当前打开的页面里计算，不会上传。同一链接可供多人同时打开练习（建议 100 人以内），每人抽到的题目和选项顺序都不同。考试中可用答题卡跳回任意一题修改：电脑端在题目右侧，手机端点底部「答题卡」即可弹出。</div>
+</section>
+
+<!-- 考试 / 练习 -->
+<section id="view-exam" class="hidden">
+  <div class="topbar"><div class="topbar-in">
+    <strong id="examTitle">模拟考试</strong>
+    <span class="timer" id="timer">90:00</span>
+    <div class="progress"><i id="progBar"></i></div>
+    <span id="progText" style="font-size:14px;color:var(--muted)">0 / 50</span>
+    <button class="btn btn-danger" id="btnSubmitTop" style="min-height:40px;padding:6px 16px">交卷</button>
+  </div></div>
+
+  <div class="examgrid">
+    <div class="card">
+      <div class="qmeta"><span id="qMod">模块</span><span id="qType">单选题 · 2 分</span><span id="qFlagState"></span></div>
+      <div class="qtext" id="qText"></div>
+      <div class="opts" id="qOpts"></div>
+      <div class="feedback" id="feedback"></div>
+      <div class="navrow">
+        <button class="btn btn-ghost" id="btnPrev">上一题</button>
+        <button class="btn btn-ghost" id="btnFlag">标记此题</button>
+        <button class="btn btn-navy" id="btnNext">下一题</button>
+      </div>
+    </div>
+    <div class="palette-scrim" id="paletteScrim"></div>
+    <div class="card palette" id="paletteCard">
+      <h3><span>答题卡</span><button type="button" class="palette-close" id="btnClosePalette">关闭 ✕</button></h3>
+      <div class="pal" id="palette"></div>
+      <div class="legend">绿色 = 已答 · 黄框 = 当前题 · 黄底线 = 已标记<br>点题号可跳到任意一题。</div>
+      <button class="btn btn-primary" id="btnSubmit" style="margin-top:14px">交卷看成绩</button>
+      <button class="btn btn-ghost" id="btnQuit" style="width:100%;margin-top:8px">放弃并返回首页</button>
+    </div>
+  </div>
+
+  <!-- 手機端底部固定操作欄 -->
+  <div class="mobilebar" id="mobileBar">
+    <button type="button" class="mb-prev" id="mbPrev">‹ 上一题</button>
+    <button type="button" class="mb-pal" id="mbFlag">☆ 标记</button>
+    <button type="button" class="mb-pal" id="mbPalette">答题卡</button>
+    <button type="button" class="mb-next" id="mbNext">下一题 ›</button>
+  </div>
+</section>
+
+<!-- 成绩 -->
+<section id="view-result" class="hidden">
+  <div class="card scorewrap" style="margin-top:20px">
+    <div style="color:var(--muted);font-size:14px" id="resTitle">模拟考试成绩</div>
+    <div class="score"><span id="resScore">0</span><small> / 100 分</small></div>
+    <div><span class="pass y" id="resPass">及格</span></div>
+    <p class="comment" id="resComment"></p>
+    <div class="stats">
+      <div><b id="resRight">0</b>答对题数</div>
+      <div><b id="resWrong">0</b>答错题数</div>
+      <div><b id="resBlank">0</b>未答题数</div>
+      <div><b id="resTime">0</b>用时</div>
+    </div>
+    <div class="navrow" style="justify-content:center">
+      <button class="btn btn-primary" id="btnReviewWrong" style="flex:0 1 220px">查看错题</button>
+      <button class="btn btn-ghost" id="btnReviewAll" style="flex:0 1 220px">查看全部题目</button>
+      <button class="btn btn-navy" id="btnAgain" style="flex:0 1 220px">再来一套（重新抽题）</button>
+      <button class="btn btn-ghost" id="btnHome2" style="flex:0 1 220px">返回首页</button>
+    </div>
+  </div>
+  <div id="reviewBox"></div>
+</section>
+
+<footer>
+  资料来源：题目依据《广东省专利转化运用技术经理人培训指南（试行）》及中国专利法等法规整理，仅供练习参考，正式考核以官方公告为准。<br>
+  培训指南由广东省市场监督管理局于 2025 年 5 月 26 日发布、在国家知识产权局指导下制定，培训分初级、中级、高级三个层级。
+</footer>
+</div>
+
+<!-- 交卷确认 -->
+<div class="modal" id="submitModal"><div class="box">
+  <h3>确认交卷？</h3>
+  <p id="submitInfo"></p>
+  <div class="navrow">
+    <button class="btn btn-ghost" id="btnCancelSubmit">继续答题</button>
+    <button class="btn btn-primary" id="btnConfirmSubmit">确认交卷</button>
+  </div>
+</div></div>
+
+<script>
+var MODS = {
+  gonggong:{name:"公共知识模块", short:"公共知识", desc:"知识产权与专利转化运用基础、风险防控"},
+  zhengce:{name:"政策法规模块", short:"政策法规", desc:"知识产权法律法规、政策体系"},
+  shiwu:{name:"实务技能模块", short:"实务技能", desc:"转化流程、检索、价值分析、专利导航等"},
+  nengli:{name:"能力提升模块", short:"能力提升", desc:"职业道德、知识产权金融、新型转化模式（初级基础）"}
+};
+/* 题库：a 为正确选项下标（打乱前），e 为解析。法律数字均按现行《专利法》核对。 */
+var BANK = [
+/* ---------- 公共知识模块 ---------- */
+{m:"gonggong",q:"专利转化运用，通常是指将专利技术通过哪类活动实现产业化和价值实现的过程？",o:["许可、转让、作价入股等市场化运用","仅在实验室内部使用","仅发表学术论文","仅登记备案不实施"],a:0,e:"专利转化运用强调把专利推向市场和产业，许可、转让、作价入股等都是典型方式。"},
+{m:"gonggong",q:"下列哪一项不属于知识产权的范畴？",o:["专利权","商标权","著作权","土地所有权"],a:3,e:"知识产权保护的是智力成果，土地所有权属于物权，不属于知识产权。"},
+{m:"gonggong",q:"我国专利法保护的专利类型包括哪三种？",o:["发明、实用新型、外观设计","发明、商标、著作权","实用新型、集成电路、植物新品种","发明、外观设计、商业秘密"],a:0,e:"我国专利分为发明、实用新型、外观设计三种。"},
+{m:"gonggong",q:"专利权最本质的特征是？",o:["独占性（排他性）","永久性","无地域性","无需公开即可获得"],a:0,e:"专利权是排他性的独占权，同时具有地域性和时间性，并以公开换保护。"},
+{m:"gonggong",q:"技术经理人在专利转化中的核心角色是？",o:["连接技术供给方与需求方的专业桥梁","代替专利权人作全部决策","只负责撰写专利申请文件","只负责收取中介费用"],a:0,e:"技术经理人是懂技术、懂市场、懂法律的复合型桥梁人才，促成供需对接与交易落地。"},
+{m:"gonggong",q:"专利转化运用中常见的法律风险不包括？",o:["权属不清导致交易无效","侵权风险","技术本身的市场需求波动之外的权属纠纷","专利权已失效仍当作有效专利交易"],a:2,e:"市场需求波动属于市场风险；权属、侵权、权利失效属于典型的法律与权利风险，交易前应做尽职调查。"},
+{m:"gonggong",q:"在受让专利前，技术经理人首先应当核查的是？",o:["专利的法律状态和权属是否清晰、有效","转让方的办公面积","专利证书的颜色","发明人的学历"],a:0,e:"法律状态（是否有效、是否质押、是否许可他人）与权属清晰是交易安全的前提。"},
+{m:"gonggong",q:"“现有技术”一般是指？",o:["申请日以前在国内外为公众所知的技术","申请日以后公开的技术","仅在本单位内部使用的技术","尚未公开的在研技术"],a:0,e:"现有技术以申请日为界，指申请日以前已为公众所知的技术。"},
+{m:"gonggong",q:"专利转化失败的常见原因不包括？",o:["技术成熟度不足","与市场需求脱节","专利权保护期限过长","缺乏后续资金和产业配套"],a:2,e:"保护期长不是失败原因；成熟度、需求匹配和资金配套不足才是常见障碍。"},
+{m:"gonggong",q:"防控专利转化风险的有效做法是？",o:["交易前做专利法律状态检索与侵权风险分析（FTO）","只听口头承诺不查登记簿","先付款后补合同","忽略已有许可情况"],a:0,e:"事前检索法律状态、做自由实施（FTO）分析、签书面合同，是基本风控手段。"},
+{m:"gonggong",q:"下列关于专利与商业秘密区别的说法，正确的是？",o:["专利需公开技术内容换取期限保护，商业秘密靠保密维持","专利可以永久保护","商业秘密必须登记才能保护","专利不需要满足任何条件即可获得"],a:0,e:"专利以公开换保护、有期限；商业秘密不公开、靠保密措施维持，没有固定期限。"},
+{m:"gonggong",q:"专利转化运用工作的主要环节一般包括？",o:["成果挖掘、价值评估、供需对接、交易撮合与落地服务","仅有成果登记一个环节","仅有新闻发布一个环节","仅有证书颁发一个环节"],a:0,e:"转化是一条链：挖掘—评估—对接—交易—落地，技术经理人全程参与。"},
+{m:"gonggong",q:"判断一项专利是否还有效，最权威的查询依据是？",o:["国家知识产权局的专利登记簿和法律状态公告","专利权人口头说明","多年前的专利证书复印件","中介机构的宣传页"],a:0,e:"专利证书只证明授权时状态，是否有效、转让、质押等以登记簿记载为准。"},
+{m:"gonggong",q:"专利转化中“供需对接”指的是？",o:["把持有专利的供给方与有技术需求的企业精准匹配","把专利证书寄给需求方","只在展会上发传单","替双方决定交易价格"],a:0,e:"供需对接是把供给端成果与需求端真实需求匹配起来，是技术经理人的核心工作之一。"},
+{m:"gonggong",q:"下列哪种情形可能导致专利权被宣告无效？",o:["授权的技术方案不具备新颖性或创造性","专利权人变更了联系地址","专利权人缴纳了年费","专利被许可给他人使用"],a:0,e:"不符合授权条件（如无新颖性、创造性）是无效宣告的典型理由；缴年费、许可都是正常状态。"},
+{m:"gonggong",q:"技术经理人开展业务时，对不确定能否实施的技术，应当？",o:["如实披露风险，不作夸大承诺","保证一定能产业化","隐瞒专利的瑕疵","先收全款再说"],a:0,e:"如实披露、不过度承诺，既是风险防控也是职业道德要求。"},
+{m:"gonggong",q:"高校、科研院所的专利转化难，常见堵点不包括？",o:["专利数量太多导致没人想要","成果与企业需求信息不对称","缺少专业转化服务人才","作价与收益分配机制不顺畅"],a:0,e:"堵点主要是信息不对称、人才与机制问题，而不是“数量太多”本身。"},
+{m:"gonggong",q:"专利转化运用中，专利的“三性”通常指专利授权要具备？",o:["新颖性、创造性、实用性","秘密性、独占性、永久性","地域性、时间性、公开性","先进性、复杂性、高价性"],a:0,e:"发明和实用新型授权条件是新颖性、创造性和实用性，简称“三性”。"},
+
+/* ---------- 政策法规模块 ---------- */
+{m:"zhengce",q:"根据现行《专利法》，发明专利权的期限为多少年，自申请日起算？",o:["20 年","10 年","15 年","25 年"],a:0,e:"发明专利权期限为 20 年，自申请日起算。"},
+{m:"zhengce",q:"根据现行《专利法》，实用新型专利权的期限为多少年，自申请日起算？",o:["10 年","20 年","15 年","8 年"],a:0,e:"实用新型专利权期限为 10 年，自申请日起算。"},
+{m:"zhengce",q:"根据现行《专利法》，外观设计专利权的期限为多少年，自申请日起算？",o:["15 年","10 年","20 年","5 年"],a:0,e:"外观设计专利权期限为 15 年，自申请日起算（2021 年修法后由 10 年延长为 15 年）。"},
+{m:"zhengce",q:"发明或者实用新型专利的外国优先权期限为？",o:["12 个月","6 个月","18 个月","3 个月"],a:0,e:"发明和实用新型的优先权期限为在外国第一次提出申请之日起 12 个月内。"},
+{m:"zhengce",q:"外观设计专利的外国优先权期限为？",o:["6 个月","12 个月","3 个月","18 个月"],a:0,e:"外观设计优先权期限为 6 个月。"},
+{m:"zhengce",q:"发明专利申请自申请日起多久内，申请人可以请求实质审查？",o:["3 年内","1 年内","6 个月内","5 年内"],a:0,e:"自申请日起 3 年内，申请人可随时请求实质审查；逾期未请求且无正当理由的，申请视为撤回。"},
+{m:"zhengce",q:"职务发明创造的专利申请权和专利权依法归谁所有？",o:["单位","发明人个人","单位与发明人各一半","国家"],a:0,e:"职务发明创造申请专利的权利属于单位，申请被批准后单位为专利权人；发明人享有署名和获得奖励报酬的权利。"},
+{m:"zhengce",q:"专利权人许可他人实施其专利，应当如何订立合同？",o:["订立书面许可合同","口头约定即可，无需任何形式","只需在证书上签字","只需通知专利局即可"],a:0,e:"《专利法》规定，许可他人实施专利的，应当订立书面实施许可合同，并可向专利行政部门备案。"},
+{m:"zhengce",q:"转让专利申请权或专利权的，法律要求是？",o:["订立书面合同，并向国务院专利行政部门登记，转让自登记之日起生效","口头约定即生效","只需交付专利证书","公证后自动生效，无需登记"],a:0,e:"专利转让应订立书面合同并登记，转让自登记之日起生效。"},
+{m:"zhengce",q:"《促进科技成果转化法》所称科技成果转化，主要是指？",o:["为提高生产力水平而对科技成果进行后续试验、开发、应用、推广直至形成新产品、新工艺、新材料、发展新产业等活动","仅指发表论文","仅指申请专利","仅指成果登记"],a:0,e:"该法明确了转化的定义，并规定了自行实施、转让、许可、合作实施、作价投资等转化方式。"},
+{m:"zhengce",q:"科技成果完成单位将成果作价投资、折算股份时，涉及的转化方式属于？",o:["作价投资转化","无偿赠送","行政划拨","强制许可"],a:0,e:"以科技成果作价投资、折算股份或出资比例，是《促进科技成果转化法》规定的重要转化方式。"},
+{m:"zhengce",q:"技术合同认定登记的主要作用不包括？",o:["保证技术合同项目一定盈利","作为享受税收等优惠政策的依据之一","规范技术市场秩序","统计技术市场交易情况"],a:0,e:"认定登记用于规范市场、落实优惠政策和统计，不承诺项目盈利。"},
+{m:"zhengce",q:"下列哪类合同属于典型的技术合同？",o:["技术开发、技术转让、技术咨询、技术服务合同","房屋买卖合同","劳动合同","货物运输合同"],a:0,e:"技术合同主要包括技术开发、转让、许可、咨询、服务等类型，并可进行认定登记。"},
+{m:"zhengce",q:"两个以上的申请人分别就同样的发明创造申请专利的，专利权授予谁？",o:["最先申请的人","最后申请的人","最先发明的人","所有申请人共有"],a:0,e:"我国实行先申请原则，同样的发明创造只授予一项专利权，给最先申请的人。"},
+{m:"zhengce",q:"专利权被授予后，任何单位或者个人认为授权不符合专利法规定的，可以请求？",o:["宣告该专利权无效","直接撤销专利证书","要求专利局赔偿","没收专利权人的收益"],a:0,e:"任何单位或个人可请求专利复审和无效审理部门宣告专利权无效。"},
+{m:"zhengce",q:"对国务院专利行政部门驳回专利申请的决定不服的，申请人可以请求？",o:["复审","直接向法院起诉专利局局长个人","重新提交一份完全相同的申请即可","要求自动授权"],a:0,e:"对驳回决定不服，可请求复审；对复审决定仍不服的，可依法向人民法院起诉。"},
+{m:"zhengce",q:"在中国完成的技术方案，未经保密审查就直接向外国申请专利，可能违反的是？",o:["向外国申请专利的保密审查要求","商标法","著作权法","反垄断法"],a:0,e:"在中国完成的发明或实用新型向外国申请专利前，应先报经保密审查。"},
+{m:"zhengce",q:"专利权人未按规定缴纳年费的，后果是？",o:["专利权在期限届满前终止","自动延长保护期","只罚款不影响权利","转为商标权"],a:0,e:"未按规定缴纳年费（经滞纳期仍未缴）会导致专利权提前终止。"},
+{m:"zhengce",q:"我国知识产权强国建设与专利转化运用专项行动强调的工作导向是？",o:["以转化运用为牵引，提升专利质量和产业化水平","只追求专利申请数量","只做授权不做运用","取消专利审查"],a:0,e:"近年政策导向已从重数量转向重质量、重转化运用，推动专利产业化。"},
+
+/* ---------- 实务技能模块 ---------- */
+{m:"shiwu",q:"专利转化运用的一般流程，正确的顺序是？",o:["成果挖掘与筛选 → 价值分析评估 → 供需对接与撮合 → 交易签约与登记 → 实施跟踪服务","先签约付款 → 再找成果 → 最后评估","先实施生产 → 再核查权属 → 最后签约","只做宣传 → 直接量产"],a:0,e:"规范流程是先挖掘筛选、评估，再对接撮合、签约登记，最后跟踪实施效果。"},
+{m:"shiwu",q:"专利文献检索最常用的官方数据库是？",o:["国家知识产权局专利检索及分析系统等官方平台","普通搜索引擎的结果页","社交媒体帖子","企业宣传册"],a:0,e:"应使用国家知识产权局等官方检索系统，并结合商业数据库交叉验证。"},
+{m:"shiwu",q:"做专利检索时，按技术主题查找相关专利，最关键的检索要素是？",o:["关键词结合分类号（如 IPC 分类）检索","只按专利权人姓名检索","只看专利号大小","只检索最新一周的专利"],a:0,e:"主题检索通常用关键词 + 国际专利分类号（IPC）组合，并做同义词扩展。"},
+{m:"shiwu",q:"专利价值分析中常用的三种评估方法是？",o:["成本法、市场法、收益法","抽签法、经验法、直觉法","拍卖法、摇号法、票决法","加权法、除权法、复权法"],a:0,e:"成本法、市场法、收益法是专利等无形资产价值评估的常用方法（本题为已核实口径）。"},
+{m:"shiwu",q:"收益法评估专利价值的核心思路是？",o:["测算专利在未来能带来的预期收益并折现","按研发投入原值直接定价","参照证书印刷成本定价","按发明人人数定价"],a:0,e:"收益法看未来获利能力，适合已有或预期有实施收益的专利。"},
+{m:"shiwu",q:"高价值专利培育布局通常强调？",o:["围绕核心技术做组合布局、提升权利要求质量并面向市场需求","只追求单件专利数量","只在国内申请一件就结束","说明书越短越好"],a:0,e:"高价值专利培育重质量、组合与市场导向，形成能保护产品和支撑转化的专利组合。"},
+{m:"shiwu",q:"专利导航的主要作用是？",o:["以专利信息分析指引产业规划、研发方向和区域布局决策","为专利证书设计封面导航","给发明人指路到专利局","统计专利局的人流量"],a:0,e:"专利导航把专利大数据分析用于产业、企业决策，支撑研发立项与布局。"},
+{m:"shiwu",q:"专利池（专利组合许可池）指的是？",o:["多个专利权人将相关专利集中起来统一对外许可的安排","把专利证书存放在同一个仓库","专利局的废水处理池","失效专利的回收站"],a:0,e:"专利池通过集中许可降低交易成本，常用于标准必要专利等成套技术。"},
+{m:"shiwu",q:"创新联合体通常是指？",o:["由龙头企业牵头、联合高校院所和上下游企业协同攻关的组织形式","单个企业的内部部门","专利代理机构联盟","高校的社团组织"],a:0,e:"创新联合体以企业为主体、产学研协同攻关，专利转化是其成果落地的重要环节。"},
+{m:"shiwu",q:"通过 PCT 途径申请国际专利，正确的理解是？",o:["PCT 是提交国际申请的途径，是否授权仍由各指定国家/地区审查决定","提交 PCT 就自动获得全球专利权","PCT 机构直接颁发世界专利证书","PCT 申请不需要再进入国家阶段"],a:0,e:"不存在“世界专利”，PCT 只是统一申请程序，后续须进入国家阶段由各国审查授权。"},
+{m:"shiwu",q:"供需对接会上，技术经理人介绍专利时最应该突出的是？",o:["技术解决的痛点、成熟度、应用场景与合作方式","专利证书的装帧","发明人的个人经历八卦","申请过程中的趣闻"],a:0,e:"企业关心的是能解决什么问题、成熟到什么程度、怎么合作，介绍应围绕价值与落地。"},
+{m:"shiwu",q:"判断一项技术是否适合立即推向企业转化，较重要的指标是？",o:["技术成熟度（如是否完成中试验证）","专利号是否好记","发明人年龄","说明书页数"],a:0,e:"成熟度决定转化风险与周期，中试验证情况是企业最关心的指标之一。"},
+{m:"shiwu",q:"专利权利要求书的作用是？",o:["界定专利权的保护范围","介绍发明人的简历","记录年费缴纳情况","说明产品售价"],a:0,e:"保护范围以权利要求的内容为准，说明书及附图可以用于解释权利要求。"},
+{m:"shiwu",q:"在专利许可谈判中，“独占许可”意味着？",o:["在约定范围内被许可方独占实施，连专利权人自己也不能实施","专利权人可以任意再许可多家","被许可方不能实施，只能参观","许可自动变为转让"],a:0,e:"独占许可排他性最强；排他许可中专利权人自己可实施但不得再许可他人；普通许可则可多家许可。"},
+{m:"shiwu",q:"专利检索报告中发现目标专利已被质押，技术经理人应当？",o:["提示交易方注意：质押期间转让或许可需关注质权人同意等限制","隐瞒不说促成交易","建议直接绕开登记交易","认定专利必然无效"],a:0,e:"专利权质押已登记的，其转让或许可受到限制，交易前必须披露并妥善处理。"},
+{m:"shiwu",q:"国际专利转化中，把中国专利技术许可给境外企业时，要特别关注？",o:["技术出口管制、合同登记与跨境知识产权条款","只需口头约定即可","不需要考虑目标国法律","汇率波动与交易无关无需关注"],a:0,e:"跨境转化涉及出口管制、技术进出口合同登记及目标国法律，须专业审查。"},
+{m:"shiwu",q:"专利布局中“专利组合/专利包”策略的目的是？",o:["围绕一个产品或技术形成多件互补专利，提高保护与谈判能力","把无关专利随意打包降价","减少专利数量到一件","只为凑数申报项目"],a:0,e:"组合布局能形成保护网和交易筹码，比单件专利更利于转化谈判。"},
+{m:"shiwu",q:"企业提出技术需求后，技术经理人做专利匹配的第一步是？",o:["把需求拆解为具体技术问题和指标，再检索匹配专利","直接推荐手头最贵的专利","先收取全部服务费","让企业自己去逐件查专利"],a:0,e:"需求拆解—检索—筛选—验证，是供需匹配的标准打法。"},
+
+/* ---------- 能力提升模块（初级基础） ---------- */
+{m:"nengli",q:"科技伦理的基本要求包括？",o:["尊重生命与安全、诚实守信、不得伪造篡改科研数据","为了转化速度可以夸大技术效果","可以隐瞒技术的重大缺陷","数据不理想时可以编造"],a:0,e:"科技伦理强调安全、诚信与责任，伪造数据、夸大效果都违反伦理与职业道德。"},
+{m:"nengli",q:"技术经理人的职业道德要求不包括？",o:["利用掌握的未公开技术信息为自己谋取私下交易利益","保守委托方的商业秘密","如实披露专利瑕疵与风险","公平对待交易各方"],a:0,e:"利用内幕信息私下牟利、泄露秘密都违反职业道德；保密、诚信、公平是基本要求。"},
+{m:"nengli",q:"知识产权质押融资是指？",o:["以专利权等知识产权出质，向金融机构获得贷款的融资方式","把专利证书抵押给当铺换现金且无需登记","用专利换取办公用品","金融机构无偿赠款"],a:0,e:"专利质押融资盘活“知产”为资产，质押应当订立书面合同并办理登记。"},
+{m:"nengli",q:"专利作价入股属于知识产权资本化的哪种表现？",o:["以专利评估作价作为出资，成为公司股东并享有股权","把专利无偿送给公司","专利权人退出所有权利且无对价","仅在公司内部登记一下"],a:0,e:"作价入股（作价投资）是知识产权资本化的典型形式，须评估作价并依法办理权属转移。"},
+{m:"nengli",q:"“专利开放许可”制度的含义是？",o:["专利权人自愿声明愿意许可任何单位或个人实施其专利并明确费用标准，方便快速达成许可","专利局强制所有专利免费开放","专利权自动失效供公众免费使用","只能许可给国有企业"],a:0,e:"开放许可是现行《专利法》新增制度：声明 + 明码标价，降低许可谈判成本，促进转化。"},
+{m:"nengli",q:"新型转化模式“先用后付”指的是？",o:["企业先实施使用专利技术、达到约定效果或期限后再支付许可费用","先付全款才能看专利内容","永远不用付费","政府替企业永久买单"],a:0,e:"“先用后付”让中小企业低门槛先用上专利，降低转化试错成本，是推广中的新型模式。"},
+{m:"nengli",q:"知识产权证券化（基础概念）是指？",o:["以知识产权未来收益为基础发行证券进行融资","把专利证书做成纪念证券收藏","用证券账户购买专利证书原件","专利局发行股票"],a:0,e:"初级只需掌握基础概念：以许可费等未来现金流为基础资产发行证券融资。"},
+{m:"nengli",q:"国际技术转移中，知识产权管理首先要解决的问题是？",o:["权属与保护地域的确认：在目标国家/地区是否有有效权利","翻译人员的人数","展会展位的位置","宣传视频的时长"],a:0,e:"专利有地域性，跨境转移前必须确认目标市场的权利状态与保护安排。"},
+{m:"nengli",q:"技术经理人在同一交易中同时服务买卖双方时，应当？",o:["事先披露双重身份并征得各方同意，保持中立","偏向出价高的一方隐瞒信息","私下两头收费且不告知任何一方","替一方压价以促成自己提成"],a:0,e:"利益冲突披露与中立公正，是职业道德与行业规范的基本要求。"},
+{m:"nengli",q:"企业用专利质押贷款时，银行通常最关注的是？",o:["专利的稳定性、剩余保护期与可变现价值","专利证书的纸张质量","发明人的知名度八卦","专利号是否连号"],a:0,e:"金融机构看重权利稳定、期限和处置变现能力，评估是质押融资的关键环节。"},
+{m:"nengli",q:"关于开放许可的费用，正确的理解是？",o:["专利权人在开放许可声明中应明确支付方式和标准","费用由实施方随意决定","一律免费","由专利局统一定价拍卖"],a:0,e:"开放许可声明要写明许可费支付方式和标准，实施方通知专利权人并按声明支付即可。"},
+{m:"nengli",q:"科技伦理审查主要关注的研究活动是？",o:["涉及人、动物、环境与社会风险的科研与转化活动","专利证书的排版","办公用品的采购","年会的节目安排"],a:0,e:"涉及人的研究、生物安全、环境风险等活动应接受伦理审查，转化环节同样要守住安全底线。"},
+{m:"nengli",q:"知识产权金融对专利转化的促进作用主要是？",o:["为拥有专利但缺资金的企业提供融资支持，帮助技术落地量产","让专利不再需要实施","替代专利审查","保证每件专利都能贷到款"],a:0,e:"质押融资、保险、证券化等工具解决“有技术缺资金”的落地难题，但不保证每件专利都能融资。"},
+{m:"nengli",q:"技术经理人发现委托推广的专利实际上已过了保护期，应当？",o:["立即如实告知委托方和意向方，不得按有效专利推广交易","继续按有效专利收费推广","私下买下再高价转卖","把证书日期涂改后使用"],a:0,e:"权利失效必须如实披露，涂改证书、隐瞒失效状态既违规又可能构成欺诈。"},
+{m:"nengli",q:"国际技术转移合同中常见的知识产权条款不包括？",o:["保证合同永久有效且不受任何国家法律约束","权利归属与许可范围","侵权责任与担保","改进成果的归属"],a:0,e:"跨境合同受相关国家法律约束，权属、许可范围、侵权担保、改进归属都是核心条款。"},
+{m:"nengli",q:"“先用后付”模式对中小企业的最大好处是？",o:["降低前期资金压力和试错风险，验证有效再付费","可以永久免费使用专利","不需要签订任何合同","专利权自动转归企业"],a:0,e:"先用后付仍需签约并按约付费，好处是把付款节点后移、降低试错成本。"},
+{m:"nengli",q:"技术经理人职业操守中关于“保密”的正确做法是？",o:["对委托方的未公开技术与商业信息，未经许可不得向第三方披露","只在签约前保密，签约后可随意传播","可以把一家客户的需求细节透露给其竞争对手","保密只针对纸质文件，口头可以随便说"],a:0,e:"保密义务覆盖全部未公开信息和各种形式，且不因签约与否随意解除。"},
+{m:"nengli",q:"专利保险（基础概念）的作用是？",o:["为专利维权、侵权风险等提供费用保障，分散转化运用风险","保证专利一定不被侵权","代替专利年费","保证专利评估价格"],a:0,e:"专利执行保险、侵权责任保险等是知识产权金融工具之一，用于分散维权与侵权风险。"},
+
+/* ---------- 初级补充题（完善初级题库） ---------- */
+{m:"gonggong",q:"一份完整的专利申请文件通常包括？",o:["请求书、说明书、权利要求书、摘要，必要时附图","只有专利证书","只有缴费收据","只有发明人身份证复印件"],a:0,e:"专利申请文件以请求书、说明书、权利要求书和摘要为核心，说明书附图按需要提交。"},
+{m:"gonggong",q:"专利说明书的主要作用是？",o:["充分公开发明创造的内容，使所属领域技术人员能够实现","界定保护范围的唯一依据","记录年费金额","代替权利要求书"],a:0,e:"说明书要对发明创造作出清楚、完整的说明，以所属技术领域的技术人员能够实现为准；保护范围以权利要求为准。"},
+{m:"gonggong",q:"专利代理师与技术经理人的分工区别，正确的是？",o:["代理师主要从事专利申请、复审无效等代理业务，技术经理人主要从事成果转化与交易服务","两者完全一样，可以互相替代","技术经理人负责审查授权","代理师负责给专利定价拍卖"],a:0,e:"代理师是经资格认定的申请代理专业人员；技术经理人侧重供需对接、价值分析与转化落地，分工不同、可相互协作。"},
+{m:"gonggong",q:"商标与专利的保护对象区别是？",o:["商标保护用于区分商品或服务来源的标志，专利保护技术方案与设计","商标保护技术方案","专利保护品牌名称","两者保护对象完全相同"],a:0,e:"商标是商业标志，解决“是谁家的”；专利保护发明创造，解决“技术怎么做”。"},
+{m:"gonggong",q:"企业选择用商业秘密而非专利保护一项技术，通常是因为？",o:["该技术不易被反向工程发现，且企业希望不受固定保护期限限制","商业秘密不需要任何保密措施","商业秘密可以阻止他人独立研发出相同技术","商业秘密登记后自动获得独占权"],a:0,e:"商业秘密靠保密维持、没有固定期限，但他人独立研发或反向工程获得相同技术并不侵权，这是其固有风险。"},
+{m:"gonggong",q:"专利年费制度的主要意义是？",o:["维持专利权有效，并促使权利人及时放弃不再需要的专利、释放技术资源","只是专利局的收费项目，没有实际作用","交了年费就能延长法定保护期限","年费交得越多保护范围越大"],a:0,e:"年费逐年缴纳、逾期专利权终止；它也起到筛选作用，让无价值专利提前失效进入公有领域。"},
+{m:"gonggong",q:"高校院所专利转化中“成果披露”环节的作用是？",o:["发明人向本单位报告职务发明成果，便于单位评估、申请保护与安排转化","向社会公开发布全部技术细节","把成果直接卖给第一个询问的企业","代替专利申请文件"],a:0,e:"成果披露是转化链条的前端：先报告、再评估是否申请专利和如何转化，避免成果在未保护状态下流失。"},
+{m:"zhengce",q:"本国优先权的基本规则是？",o:["发明、实用新型在国内首次申请后 12 个月内、外观设计 6 个月内就相同主题再申请，可享有首次申请的优先权","任何申请都没有时间限制","只能由外国申请人享有","优先权必须经法院判决确认"],a:0,e:"本国优先权期限与外国优先权相同：发明、实用新型 12 个月，外观设计 6 个月。"},
+{m:"zhengce",q:"实用新型专利的审查方式是？",o:["初步审查制，授权后可请求作出专利权评价报告","与发明一样进行实质审查","完全不审查直接授权且永不可质疑","由发明人自行审查"],a:0,e:"实用新型实行初步审查；评价报告常用于维权和交易尽调时判断权利稳定性。"},
+{m:"zhengce",q:"外观设计专利保护的是？",o:["对产品的整体或者局部的形状、图案或者其结合以及色彩与形状、图案的结合所作出的富有美感并适于工业应用的新设计","产品内部的技术原理","制造产品的工艺流程","产品的化学成分"],a:0,e:"外观设计保护的是产品的外观美感设计，不保护技术功能本身。"},
+{m:"zhengce",q:"发现有人假冒专利（如在未授权产品上标注专利号），可以向谁举报处理？",o:["管理专利工作的部门","消费者协会只能调解别无他法","任何单位都无权处理","只能等专利权人自己发现"],a:0,e:"假冒专利由管理专利工作的部门查处，可没收违法所得并处罚款；情节严重构成犯罪的依法追究刑事责任。"},
+{m:"zhengce",q:"专利实施强制许可的基本理解，正确的是？",o:["在法定特殊情形下，经申请并符合条件，专利行政部门可授权符合条件的单位实施专利并支付合理使用费","任何企业随时都可以免费强制使用他人专利","专利权人可以强制他人接受许可","强制许可后专利权自动转归国家"],a:0,e:"强制许可是例外制度：如专利权人未充分实施、涉及公共健康、垄断行为补救等情形，且实施方应支付合理费用。"},
+{m:"zhengce",q:"职务发明的发明人依法享有的权利不包括？",o:["擅自以个人名义处分单位的专利权","在专利文件中署名的权利","获得单位奖励的权利","单位转让或实施专利时依法获得合理报酬的权利"],a:0,e:"职务发明的申请权和专利权归单位，发明人享有署名权和获得奖励、报酬的权利，不能擅自处分单位专利。"},
+{m:"zhengce",q:"就专利侵权纠纷，当事人可以选择的解决途径不包括？",o:["自行宣布对方专利无效并没收其产品","向人民法院起诉","请求管理专利工作的部门处理","协商或调解"],a:0,e:"侵权纠纷可协商、调解、行政处理或诉讼；无效宣告须向国家知识产权局提出请求，个人无权自行宣布。"},
+{m:"shiwu",q:"FTO（自由实施）分析要回答的核心问题是？",o:["把产品或技术方案投放目标市场，是否会侵犯他人的有效专利权","这件专利能卖多少钱","发明人是否满意","专利证书是否需要重新装订"],a:0,e:"FTO 通过检索目标市场有效专利并做侵权比对，评估实施的侵权风险，是产品上市和转化落地前的重要风控。"},
+{m:"shiwu",q:"专利交易尽职调查通常不包括下列哪项？",o:["调查转让方食堂的菜单价格","权属与法律状态核查","已有许可、质押情况核查","权利稳定性与侵权风险初步分析"],a:0,e:"尽调围绕权利本身：权属、状态、负担（许可/质押）、稳定性和风险，与食堂菜单无关。"},
+{m:"shiwu",q:"一份规范的技术转让（专利权转让）合同通常应明确的核心条款不包括？",o:["双方办公楼的装修标准","转让的专利清单与权属保证","价款与支付方式","违约责任与争议解决"],a:0,e:"合同核心是标的、权属保证、价款支付、交付与登记、违约与争议解决；装修标准与交易无关。"},
+{m:"shiwu",q:"专利许可费常见的收取方式组合是？",o:["入门费＋提成费，或按销售额比例提成等","只能按专利号位数收费","只能用实物抵付","由专利局按月代收"],a:0,e:"许可费可采用固定费、入门费加提成、按销售提成、里程碑付款等结构，按交易情况协商确定。"},
+{m:"shiwu",q:"“中试”在成果转化中的含义是？",o:["在接近实际生产的条件下进行中间试验，验证工艺放大与量产可行性","中等规模的专利考试","中间商试用产品","实验室第一次小试"],a:0,e:"中试是跨越“实验室成果—工业化生产”鸿沟的关键环节，成熟度不足常卡在这一步。"},
+{m:"shiwu",q:"做竞争对手专利分析时，常用的分析维度不包括？",o:["对手高管的个人爱好","申请趋势与技术分布","核心专利与布局重点区域","主要发明人与合作网络"],a:0,e:"竞品专利分析看趋势、分布、核心专利、地域和发明人网络，用于判断对手技术路线与竞争态势。"},
+{m:"shiwu",q:"技术经理人给企业做专利推介材料（路演材料）时，正确的做法是？",o:["用企业听得懂的语言讲清应用场景、效果数据和合作方式，技术细节备查","把说明书全文逐字念一遍","只放专利证书照片不讲内容","夸大效果数据以吸引注意"],a:0,e:"推介要面向决策者：痛点—方案—效果—成熟度—合作方式，数据必须真实可核查。"},
+{m:"nengli",q:"正式洽谈前与技术方签署保密协议（NDA）的主要目的是？",o:["在披露未公开技术细节前，先约定保密义务与使用范围，保护成果信息","保证交易一定成交","代替正式的转让合同","让专利自动获得授权"],a:0,e:"NDA 是转化洽谈的常见前置安排，防止未公开信息被不当使用或扩散，但不替代正式交易合同。"},
+{m:"nengli",q:"知识产权运营的基本理解是？",o:["围绕知识产权开展许可、转让、投融资、组合管理等实现其经济价值的经营活动","就是多申请几件专利存着","专指专利诉讼","专指缴纳年费"],a:0,e:"运营强调把权利当资产经营：组合管理、交易、金融、维权等手段综合实现价值。"},
+{m:"nengli",q:"技术经理人同时掌握买卖双方信息时，遇到利益冲突应当首先？",o:["主动向相关方披露冲突情况，必要时回避该笔业务","利用信息差为自己获利","只向出价高的一方披露","隐瞒到底直到成交"],a:0,e:"披露与回避是处理利益冲突的基本职业要求，信息优势不能用于私利。"},
+{m:"nengli",q:"向企业介绍一项早期技术时，对成熟度的表述正确的是？",o:["如实说明所处阶段（如仅完成实验室验证）和后续放大风险","统一宣称“马上可以量产”","只讲优点不提风险","用其他成熟产品的数据替代说明"],a:0,e:"成熟度信息直接影响企业决策和定价，必须如实披露，这是诚信执业底线。"},
+{m:"nengli",q:"技术转移沟通中，记录并让双方确认“会议纪要”的好处是？",o:["固定已达成的共识与待办事项，减少后续理解偏差和扯皮","可以替代一切合同","让纪要具有强制执行力","只是形式主义，没有用处"],a:0,e:"纪要固定共识、分工和时间节点，是推进复杂转化项目的实用工具，但不替代正式合同。"},
+{m:"nengli",q:"涉及个人信息或重要数据的技术项目在转化时，还应关注？",o:["数据来源合法性与个人信息保护等合规要求","数据越多越好无需审查来源","只要技术先进就不用管合规","把数据随合同一并无条件转交"],a:0,e:"数据类成果转化要同步审查数据合规与个人信息保护，避免交易后产生合规风险。"},
+{m:"nengli",q:"初入行的技术经理人提升专业能力最扎实的路径是？",o:["系统学习培训指南课程，跟着真实项目做检索、评估和对接练习","只背证书编号","只参加社交活动不学业务","靠承诺高价快速成交积累口碑"],a:0,e:"初级定位是打基础：学指南、练检索评估基本功、在真实项目中积累经验。"}
+];
+
+/* ================= 中级题库 ================= */
+var BANK_MID = [
+/* ---------- 公共知识模块（中级） ---------- */
+{m:"gonggong",q:"专利生命周期管理指的是？",o:["对专利从申请、维持、运营到终止/失效进行全过程的组合管理与价值维护","只管申请那一年的事务","只在专利卖出时才需要管理","把所有专利一律维持到期限届满"],a:0,e:"中级要求能按组合视角管理专利全周期：该维持的维持、该放弃的放弃、该运营的运营。"},
+{m:"gonggong",q:"企业建立知识产权管理体系（贯标）的核心价值是？",o:["把知识产权工作嵌入研发、生产、销售各环节，形成规范化管理与风险防控机制","只为拿一张证书应付检查","增加文书数量","替代技术研发"],a:0,e:"《企业知识产权管理规范》强调过程管理与持续改进，贯标的落点是管理实效而非证书本身。"},
+{m:"gonggong",q:"专利预警工作的主要内容是？",o:["持续监测竞争对手与行业专利动态，提前识别侵权与布局风险并提出应对","在收到侵权警告函后再开始检索","只统计本企业申请量","给专利证书做防伪预警"],a:0,e:"专利预警是主动监测—分析—预警—应对的机制，常用于出口产品和重大研发立项前。"},
+{m:"gonggong",q:"产学研合作中，合作各方最容易产生纠纷的环节是？",o:["合作成果的知识产权归属与收益分配事先约定不清","会议室预订冲突","宣传稿由谁撰写","参会人员的交通安排"],a:0,e:"合作研发前应书面约定背景知识产权、合作成果归属、申请与转化收益分配，这是中级实务的重点。"},
+{m:"gonggong",q:"职务科技成果赋权改革的基本思路是？",o:["赋予科研人员职务科技成果所有权或长期使用权，激发其转化积极性","把单位成果全部无偿归国家所有","禁止科研人员参与转化收益分配","取消单位对成果的管理职责"],a:0,e:"赋权改革通过产权激励解决“不愿转、不敢转”问题，试点单位可将成果所有权或长期使用权赋予完成人团队。"},
+{m:"gonggong",q:"专利与技术标准结合时，“标准必要专利（SEP）”是指？",o:["实施某项技术标准时必不可少、无法绕开的专利","质量标准最高的专利","国家强制要求申请的专利","标准化组织的内部专利"],a:0,e:"SEP 权利人通常承诺按公平、合理、无歧视（FRAND）原则许可，是产业竞争的重要筹码。"},
+{m:"gonggong",q:"开源软件使用不当给企业带来的知识产权风险主要是？",o:["违反开源许可证义务，可能被要求公开衍生代码或面临侵权索赔","开源软件一律不能商用","用了开源就自动失去全部专利","开源代码不受任何法律保护"],a:0,e:"开源不等于无条件免费，不同许可证义务差异大，产品转化与上市前应做开源合规审查。"},
+{m:"gonggong",q:"专利组合管理中“专利分级”通常依据的维度不包括？",o:["专利号末尾数字是否吉利","技术重要性与市场价值","权利稳定性","与核心产品的关联程度"],a:0,e:"分级按价值、稳定性、产品关联度等维度，把维持、运营、处置资源投向高等级专利。"},
+{m:"gonggong",q:"企业产品出口前做专利风险排查，顺序上最合理的是？",o:["先确定目标国家，再检索该国有效专利并做侵权比对","先发货再看有没有纠纷","只查中国专利即可推定全球安全","只看竞争对手官网宣传"],a:0,e:"专利有地域性，出口排查必须针对目标市场逐国检索比对，必要时修改设计或取得许可。"},
+{m:"gonggong",q:"技术经理人（中级）在转化项目中新增的核心能力要求是？",o:["能独立完成价值评估、交易结构设计与谈判推进","只需会登记信息","只需会组织会议","只负责把双方介绍认识即可"],a:0,e:"相比初级的对接与基础服务，中级要能主导评估、定价、结构设计和谈判等关键环节。"},
+{m:"gonggong",q:"专利信息分析中“专利引证分析”可以用来判断？",o:["一项专利的技术影响力与所处的技术脉络位置","发明人的年龄结构","专利局的工作效率","年费缴纳是否及时"],a:0,e:"被引次数高往往说明该专利是后续技术的基础，引证分析常用于识别核心专利。"},
+{m:"gonggong",q:"高校专利“沉睡”的深层原因，较为准确的概括是？",o:["申请导向与市场需求脱节，加上评估定价与转化服务体系不健全","教授不愿意与人沟通","专利证书保管不当","高校没有专利可转"],a:0,e:"中级分析要看到机制层面：考核导向、定价机制、专业服务与中试平台缺失共同造成沉睡专利。"},
+{m:"gonggong",q:"专利转化中的“概念验证（PoC）”环节主要解决？",o:["早期成果技术可行性不确定、难以获得后续投入的问题，通过小规模验证降低风险","专利名称是否好听","证书是否需要公证","发明人是否愿意签字"],a:0,e:"概念验证中心为早期成果提供验证资金与条件，是补齐转化链条短板的新型平台。"},
+{m:"gonggong",q:"企业并购中知识产权尽调发现标的公司核心专利已许可竞争对手独占实施，意味着？",o:["该专利的排他价值已受重大限制，应在估值与交易条款中充分反映","没有任何影响","并购必须立即终止且无补救","标的专利自动无效"],a:0,e:"权利负担直接影响资产价值与并购后经营，尽调的作用就是把这类问题提前定价或设条件解决。"},
+{m:"gonggong",q:"区域专利转化生态中，技术经理人机构（技术转移机构）的定位是？",o:["提供检索评估、对接撮合、金融法务等专业服务的成果转化服务机构","专利审查机构的派出部门","只做培训发证的机构","企业的下属销售部门"],a:0,e:"技术转移机构是转化生态的专业节点，与高校 TTO、企业、金融机构协同服务。"},
+
+/* ---------- 政策法规模块（中级） ---------- */
+{m:"zhengce",q:"现行《专利法》引入专利权期限补偿制度，主要是针对？",o:["发明专利授权过程中不合理延迟等情形给予期限补偿，药品专利另有专门补偿规则","所有专利一律自动延长 5 年","实用新型年费迟交的补偿","专利被无效后的补偿"],a:0,e:"期限补偿是 2020 年修法新增制度，针对授权不合理延迟和创新药上市审批占用时间，具体按法定条件核定。"},
+{m:"zhengce",q:"故意侵犯专利权、情节严重的，人民法院可以按照权利人损失等计算基数的多少判处惩罚性赔偿？",o:["一倍以上五倍以下","十倍固定赔偿","只能象征性赔偿一元","没有惩罚性赔偿制度"],a:0,e:"《专利法》第七十一条规定：故意侵权情节严重的，可在按法定方法确定数额的一倍以上五倍以下确定赔偿数额。"},
+{m:"zhengce",q:"权利人损失、侵权获利和许可费都难以确定时，专利侵权法定赔偿的现行幅度是？",o:["三万元以上五百万元以下","一千元以下","一律五百万元","没有上限由法官随意定"],a:0,e:"现行《专利法》规定的法定赔偿幅度为三万元以上五百万元以下（2020 年修法提高后的标准）。"},
+{m:"zhengce",q:"《民法典》技术合同部分对技术转让合同的基本要求，正确的是？",o:["技术转让合同应采用书面形式，并对标的、范围、价款等作出约定","技术合同只能口头订立","技术合同不需要约定保密义务","技术合同一律无效除非公证"],a:0,e:"技术开发、转让、许可等合同在民法典合同编中有专章规定，书面形式与核心条款约定是基础。"},
+{m:"zhengce",q:"我国对技术进出口实行分类管理，技术分为？",o:["自由进出口、限制进出口和禁止进出口三类","只有允许和禁止两类","全部自由无需任何手续","全部需要逐项审批"],a:0,e:"《技术进出口管理条例》实行目录管理：禁止类不得进出口，限制类需许可，自由类实行合同登记管理。"},
+{m:"zhengce",q:"商业秘密受《反不正当竞争法》保护需要具备的条件不包括？",o:["必须向国家知识产权局登记备案","不为公众所知悉（秘密性）","具有商业价值","权利人采取了相应保密措施"],a:0,e:"商业秘密三要件是秘密性、价值性和保密措施，不实行登记制；这正是它与专利的根本区别之一。"},
+{m:"zhengce",q:"集成电路布图设计专有权的保护期为？",o:["10 年","20 年","15 年","50 年"],a:0,e:"依《集成电路布图设计保护条例》，保护期为 10 年，自布图设计登记申请之日或者在世界任何地方首次投入商业利用之日起计算，以较前日期为准。"},
+{m:"zhengce",q:"知识产权被滥用以排除、限制竞争的，可能受到哪部法律的规制？",o:["《反垄断法》","《专利法》只保护权利人，任何行使行为都不受限制","《公司法》","不受任何法律规制"],a:0,e:"反垄断法明确：经营者不得滥用知识产权排除、限制竞争；依法行使权利本身不受该条约束。"},
+{m:"zhengce",q:"专利权人向海关总署办理知识产权海关保护备案的作用是？",o:["便于海关在进出口环节发现涉嫌侵权货物时依职权扣留并通知权利人","备案后专利自动获得全球保护","备案可以代替专利申请","备案后无需再缴纳年费"],a:0,e:"海关备案是边境保护措施，进出口侵权货物可被扣留，是外贸型企业的重要维权工具。"},
+{m:"zhengce",q:"单位与科研人员就职务科技成果转化收益分配，政策导向是？",o:["奖励完成人的比例依法规与单位制度从高保障，净收入或股权奖励有明确下限要求","完成人一律不得参与分配","全部收益归单位财务与完成人无关","由双方私下口头决定即可"],a:0,e:"《促进科技成果转化法》规定了奖励报酬的最低比例要求（如转让净收入或作价股份的一定比例），单位制度可在法定底线之上提高。"},
+{m:"zhengce",q:"药品专利纠纷早期解决机制（专利链接制度）的基本功能是？",o:["在仿制药上市审批环节提前衔接专利纠纷解决，减少上市后侵权风险","强制原研药降价","取消药品专利保护","由药监部门直接决定专利无效"],a:0,e:"专利链接把药品注册审批与专利状态、声明及诉讼/行政裁决衔接起来，是医药转化与上市的重要规则。"},
+{m:"zhengce",q:"展会期间发现参展产品涉嫌侵犯专利权，权利人可以？",o:["向展会知识产权投诉机构投诉，或向管理专利工作的部门、法院寻求处理","直接没收参展商的全部展品","在展会上自行扣押对方人员","只能等展会结束一年后再处理"],a:0,e:"展会设有知识产权保护投诉与快速处理机制，权利人应备齐权属证明及时投诉或走行政、司法途径。"},
+{m:"zhengce",q:"软件成果同时可能涉及的保护方式组合，较完整的是？",o:["著作权（软件著作权）＋专利（技术方案部分）＋商业秘密","只能选一种且互斥","只能申请商标","不受任何保护"],a:0,e:"软件的表达受著作权保护，其中符合条件的技术方案可申请专利，源代码等也可作商业秘密管理，中级要会组合运用。"},
+{m:"zhengce",q:"专利代理机构和代理师执业的基本要求是？",o:["取得执业许可与资格，依法合规代理，保守委托人秘密","任何人都可以无证收费代理","可以承诺“包授权”作为行业惯例","代理师可同时担任审查员"],a:0,e:"专利代理实行准入管理；“包授权”式承诺属违规宣传，转化服务中应选择正规代理机构协作。"},
+{m:"zhengce",q:"向外国转让专利申请权或专利权，依法应当？",o:["遵守我国相关法律规定，涉及限制类技术的还须办理技术出口许可等手续","完全自由，无需任何审查","一律禁止","只需通知发明人即可"],a:0,e:"专利权向外国人转让须遵守技术进出口管理等规定，涉及国家安全的技术还涉及对外转让审查。"},
+
+/* ---------- 实务技能模块（中级） ---------- */
+{m:"shiwu",q:"收益法评估中，确定专利许可使用费节省法（许可费节省法）的关键参数不包括？",o:["评估师的个人喜好","合理的许可费率","专利剩余经济寿命","适用的折现率"],a:0,e:"许可费节省法以“自有专利省下的许可费”为收益口径，费率、寿命与折现率是决定估值的核心参数。"},
+{m:"shiwu",q:"市场法评估专利价值最大的现实难点是？",o:["可比交易案例少且交易信息不公开，需要做大量差异调整","市场上专利交易太多难以挑选","法律禁止使用市场法","可比案例的价格一律相同"],a:0,e:"专利独一无二且交易信息保密，市场法应用受限，使用时要对技术、市场、交易条件差异逐项修正。"},
+{m:"shiwu",q:"成本法评估专利价值时，容易被忽视的问题是？",o:["历史研发成本与专利当前获利能力并不等价，高投入可能已无市场价值","成本法计算太简单","成本法必须引用国外案例","成本法得出的就是市场成交价"],a:0,e:"成本法反映的是再取得成本而非收益能力，常作为辅助或底线参考，不能单独决定交易价格。"},
+{m:"shiwu",q:"一份合格的 FTO 分析报告通常包括？",o:["目标市场有效专利检索、权利要求比对、风险等级判断与规避建议","只有专利号清单没有分析","对全部风险一律保证为零","发明人访谈录音"],a:0,e:"FTO 报告要落到权利要求逐项比对和可操作的规避设计、许可或无效等应对建议。"},
+{m:"shiwu",q:"专利布局中“外围布局”策略指的是？",o:["围绕核心专利在应用、改进、替代方案等方向布设专利，形成保护圈并封堵绕行路线","把专利都申请在国外","只申请外观设计凑数","在核心专利到期后才申请"],a:0,e:"核心＋外围的组合布局能提高对手绕开的成本，是中级布局实务的基本功。"},
+{m:"shiwu",q:"交易结构选择上，企业想长期独占使用技术但资金有限，较合适的安排是？",o:["独占许可分期付款或入门费加销售提成，而非一次性买断转让","直接放弃使用该技术","先侵权使用再谈补偿","要求专利权人无偿赠送"],a:0,e:"许可与转让的核心差异是权属是否转移；分期与提成结构能缓解受让方现金流压力。"},
+{m:"shiwu",q:"里程碑付款在技术许可合同中的作用是？",o:["把付款与技术交接、中试、量产等关键节点挂钩，分散双方风险","让合同显得更复杂","专利局强制要求的格式条款","代替全部许可费"],a:0,e:"里程碑付款让费用与转化进度匹配，技术方未达节点则后续款项不付，是常用的风险分配工具。"},
+{m:"shiwu",q:"专利质押融资中，评估机构出具质押价值评估时通常会比交易价值更？",o:["保守，因为要考虑处置变现时的折价与时间成本","高，因为银行喜欢高数字","完全一致，没有区别","随意，与变现无关"],a:0,e:"质押价值着眼于违约处置场景，考虑快速变现折价，通常低于市场交易价值。"},
+{m:"shiwu",q:"技术作价入股的操作流程，关键步骤不包括？",o:["把专利证书装裱后挂在股东会议室","资产评估与作价协商","股东会决议与公司章程修改","办理专利权转移登记与工商变更"],a:0,e:"作价入股要走评估—决议—出资协议—权属转移登记—工商变更的完整链条，权属登记是生效要件。"},
+{m:"shiwu",q:"谈判中的 BATNA 指的是？",o:["谈判破裂时的最佳替代方案，它决定一方的谈判底气与底线","专利局的内部编号","一种评估软件的名称","合同的保密等级"],a:0,e:"中级谈判要先备好替代方案：有可行的备选技术或合作方，才不会被单一交易锁死。"},
+{m:"shiwu",q:"专利导航报告服务于企业研发立项时，最有价值的产出是？",o:["技术路线分布、空白点与侵权风险提示，支撑“做哪条路线、避开谁”的决策","专利数量排行榜本身","发明人名单汇总","证书扫描件汇编"],a:0,e:"导航的价值在决策：哪里是红海、哪里有空白、哪里有雷区，直接指导立项与布局。"},
+{m:"shiwu",q:"做专利价值快速筛查时，常用的初步信号不包括？",o:["专利权人的办公地址是否在市中心","同族专利数量与覆盖国家","权利要求范围与稳定性线索","是否已许可或产业化应用"],a:0,e:"同族规模、权利状态、许可与应用记录是快速判断价值层级的实用信号。"},
+{m:"shiwu",q:"供需对接后企业要求先做小批量试用验证，技术经理人应当？",o:["推动签订试用/验证协议，约定样品、指标、数据归属与后续转化优先安排","口头答应先把完整技术资料全部交出","拒绝一切验证要求直接要求全款买断","让企业自行仿制验证"],a:0,e:"验证环节要签约护权：明确验证范围、数据与改进成果归属，并衔接后续正式交易安排。"},
+{m:"shiwu",q:"专利包（多件专利）打包交易的定价思路是？",o:["先单件分级估值，再考虑组合的协同价值与冗余折价，整体协商定价","把每件都按最高价相加不打折","按件数平均一口价","只看证书总重量"],a:0,e:"组合定价要处理协同与重复：核心专利贡献主要价值，外围专利起封堵作用，不能简单相加。"},
+{m:"shiwu",q:"转化项目跟踪服务中，技术经理人最应关注的预警信号是？",o:["受让方长期不实施、拖欠费用或经营状况恶化等履约风险","受让方更换了办公家具","受让方公众号更新频率","受让方参加行业展会次数"],a:0,e:"落地跟踪要盯实施进度与履约能力，发现停滞或违约苗头及时介入协调或启动合同救济。"},
+
+/* ---------- 能力提升模块（中级） ---------- */
+{m:"nengli",q:"专利质押融资贷后管理中，贷款机构和技术经理人应重点监测？",o:["质押专利的年费缴纳与法律状态，防止权利失效导致质押物灭失","借款企业的员工考勤","专利证书的存放位置","企业负责人的出差频率"],a:0,e:"专利一旦因未缴年费等原因失效，质押担保即落空，贷后状态监测是质押融资的生命线。"},
+{m:"nengli",q:"知识产权证券化的基础资产最关键的品质是？",o:["能产生可预期、可持续的现金流（如稳定的许可费收入）","专利数量足够多即可，现金流无所谓","必须是发明专利，实用新型一律不行","基础资产越复杂越好"],a:0,e:"证券化偿付靠未来现金流，许可合同稳定、付款方信用好是入池资产的核心门槛。"},
+{m:"nengli",q:"专利保险投保前，保险公司通常要求投保人提供？",o:["专利法律状态、稳定性初步分析与拟实施/维权计划等资料核保","发明人的家庭情况","企业食堂卫生评级","专利证书的高清艺术照"],a:0,e:"核保要看权利稳定性与风险敞口，资料不全或权利明显不稳的专利难以承保。"},
+{m:"nengli",q:"国际技术许可谈判中，除价格外最容易被忽视的关键条款是？",o:["改进技术的归属与回授、许可地域与再许可限制、争议解决与适用法律","合同封面的颜色","谈判会议的茶水安排","双方名片的设计"],a:0,e:"跨境许可的长期利益往往藏在改进归属、回授条款和争议解决条款里，中级谈判必须逐条把关。"},
+{m:"nengli",q:"技术转移办公室（TTO）在高校转化体系中的核心职能是？",o:["成果管理、专利申请决策、市场推广与转化收益分配的专业化运作","代替教授做科研","负责学校招生宣传","管理学生宿舍"],a:0,e:"TTO 是高校内部的专业转化枢纽，把分散的发明人成果变成可交易资产并持续运营。"},
+{m:"nengli",q:"专利招商（以专利资源引进产业项目）谈判中，地方政府最关心的是？",o:["项目落地后的产业带动、税收与就业，以及技术真实性与权属清晰","专利证书是否好看","发明人是否愿意迁户口","项目名称是否响亮"],a:0,e:"专利招商要同时过技术关和产业关：权属不清或无法量产的项目不应包装引进。"},
+{m:"nengli",q:"中级技术经理人做项目路演答辩时，评委最常追问的三类问题是？",o:["市场空间与竞争格局、技术壁垒与权利稳定性、商业模式与收益测算","发明人的求学经历、团队的团建活动、办公室选址","专利号的含义、证书的纸张、申请当天的天气","路演场地的大小、PPT 的页数、演示者的着装品牌"],a:0,e:"答辩要经得起市场、权利、财务三重追问，数据与证据链要提前准备。"},
+{m:"nengli",q:"转化服务收费模式中，与成果方利益绑定最紧的是？",o:["基础服务费＋成交佣金（或收益分成）","只按小时收费与结果无关","只收登记费","完全免费且无任何约定"],a:0,e:"佣金/分成模式让服务方收益随成交实现，能激励撮合，但比例与计算口径必须事先书面约定清楚。"},
+{m:"nengli",q:"当交易双方对专利价格分歧过大僵持不下时，中级技术经理人的有效做法是？",o:["引入第三方评估、拆分交易结构（如分阶段付款、许可转转让）寻找共同区间","宣布谈判失败并拉黑双方","替一方伪造评估报告压价","要求双方抽签定价"],a:0,e:"破局靠工具：独立评估提供锚点，结构设计（分期、对价调整、选择权安排）扩大可成交空间。"},
+{m:"nengli",q:"知识产权金融服务中，“知产”质押加政府风险补偿资金池的作用是？",o:["由财政资金对银行质押贷款损失给予一定补偿，提高银行放贷意愿","替企业偿还全部贷款","保证质押专利都能卖出高价","取消银行的贷前审查"],a:0,e:"风险补偿是增信工具而非兜底，企业信用与专利质量仍是放贷基础。"},
+{m:"nengli",q:"跨境转化项目中，技术经理人协调多方（律所、评估、翻译、商会）时，关键管理动作是？",o:["明确各方交付物、时间节点与信息保密要求，并统一对接窗口","让各方自行联系无需协调","所有文件都不留书面记录","只用口头承诺推进"],a:0,e:"跨境项目周期长、参与方多，交付与保密管理不到位最容易在权属和时点上出问题。"},
+{m:"nengli",q:"企业委托做专利侵权风险应对时，技术经理人可协调的组合策略不包括？",o:["唆使企业销毁侵权证据","规避设计（绕开权利要求）","对涉案专利提起无效宣告请求","协商取得许可或交叉许可"],a:0,e:"应对路径是规避、无效、许可、应诉的组合；销毁证据违法且会带来严重不利后果，绝不可为。"},
+{m:"nengli",q:"技术经理人参与行业标准制定相关工作时，可以发挥的作用是？",o:["协助企业把自主专利纳入标准并提前做好必要专利布局与许可政策准备","保证企业专利必然成为标准","代替标准组织作决定","在标准中隐藏专利不披露"],a:0,e:"标准与专利联动要合规：参与标准制定时负有专利信息披露义务，提前布局才能把握 SEP 机会。"},
+{m:"nengli",q:"对转化项目做复盘时，最有价值的复盘维度是？",o:["定价是否合理、周期卡点在哪、合同条款哪些被真正触发、客户后续实施效果","项目庆功宴的规格","团队出行的交通工具","新闻稿的字数"],a:0,e:"复盘要沉淀可复用的定价经验、流程卡点与条款教训，这是中级向高级进阶的经验来源。"},
+{m:"nengli",q:"中级技术经理人的职业进阶标志之一是？",o:["能独立负责完整转化项目并对交易结果与合规负责","认识更多行业群主","收藏更多专利证书复印件","把所有项目都转给别人做"],a:0,e:"从“协助对接”到“独立负责并担责”，是从初级到中级的核心跨越。"}
+];
+
+/* ================= 高级题库 ================= */
+var BANK_SENIOR = [
+/* ---------- 公共知识模块（高级） ---------- */
+{m:"gonggong",q:"企业专利战略与经营战略对齐的标志是？",o:["专利布局直接服务于产品路线、市场进入与竞争壁垒构建，并纳入高层决策议程","专利工作只由法务部门年终统计","申请量年年增长即可","专利战略与业务战略互不相干"],a:0,e:"高级视角下，专利是经营工具：布局跟着产品与市场走，重大布局要进经营决策层讨论。"},
+{m:"gonggong",q:"标准必要专利许可中的 FRAND 原则指的是？",o:["许可条件应公平、合理、无歧视","专利权人可以任意定价且拒绝许可","实施者可以免费使用","由政府统一定价"],a:0,e:"FRAND 承诺平衡权利人与实施者利益，是 SEP 许可谈判与诉讼的核心框架。"},
+{m:"gonggong",q:"专利联营（专利池）运营中必须守住的合规底线是？",o:["不得借专利池实施价格固定、市场分割等排除限制竞争的行为","专利池可以统一所有成员的产品售价","专利池成员必须拒绝向外许可","专利池不受任何法律监管"],a:0,e:"专利池有降低交易成本的正当性，但触碰反垄断红线（联合定价、排他安排）会被规制。"},
+{m:"gonggong",q:"科创板等上市审核中，知识产权通常被重点核查的原因是？",o:["核心技术与专利的权属、稳定性和独立性直接关系到发行人的持续经营能力与科创属性","只是走形式，与经营无关","专利越多必然越容易上市","审核只看专利证书数量"],a:0,e:"上市核查关注核心技术来源、职务发明权属、许可依赖与侵权诉讼风险，高级经理人要懂资本市场口径。"},
+{m:"gonggong",q:"企业破产重整中，专利资产处置的特殊之处是？",o:["专利属于破产财产，其许可合同效力、质押优先权与处置变现需依法统筹处理","专利自动归发明人所有","专利随公司注销自动失效","债权人无权主张专利变现"],a:0,e:"破产场景下专利要过权属、负担与变现三关，已设质押的专利变价款涉及优先受偿顺序。"},
+{m:"gonggong",q:"人工智能辅助研发产出的技术成果，在现行框架下稳妥的权属处理方式是？",o:["结合人类智力投入程度判断保护路径，并在研发与合作合同中事先明确成果归属","一律认定 AI 为发明人","一律不受任何保护无需管理","谁先截图归谁"],a:0,e:"现行专利制度下发明人应为自然人；AI 辅助成果要靠合同约定与具体贡献分析管理风险，不能想当然。"},
+{m:"gonggong",q:"全球专利治理中，企业建立海外专利组合的首要决策是？",o:["按目标市场、制造地与竞争对手分布确定国家布局与预算优先级","哪个国家便宜就先申请哪个","所有国家全部申请不计成本","只看申请速度不看市场"],a:0,e:"海外布局是资源配置决策：市场在哪、工厂在哪、对手在哪，决定钱花在哪几个国家。"},
+{m:"gonggong",q:"高价值专利培育体系（高级层面）强调的闭环是？",o:["技术研发—专利布局—质量管控—运营转化—收益反哺研发的持续循环","只抓申请环节的数量考核","培育结束即不再管理","把培育等同于购买专利"],a:0,e:"高级培育看体系：前端选题、中端质量、后端运营与收益回流，缺一环都难以持续产出高价值专利。"},
+{m:"gonggong",q:"产业专利协同（产业知识产权联盟）的典型功能不包括？",o:["替成员企业决定产品售价并统一销售","联合布局与运营专利","共建专利预警与风险应对","推动标准与专利协同"],a:0,e:"联盟做布局、预警、运营与标准协同，但统一定价销售会触碰反垄断红线，不属于合法功能。"},
+{m:"gonggong",q:"专利资产在企业整体资产配置中的定位，高级层面的共识是？",o:["可经营、可融资、可交易的战略资产，应纳入资产负债表思维统一管理","只是研发部门的历史档案","只有诉讼时才有价值","与财务部门无关"],a:0,e:"高级经理人要把专利当资产组合经营：账面、融资、交易、防御四种价值统筹考虑。"},
+{m:"gonggong",q:"开源与专利并行的企业知识产权治理，关键制度是？",o:["建立开源软件使用审批与合规清单，同时明确自有专利的许可政策","禁止一切开源使用","开源项目中自动放弃全部专利","开源合规与专利管理互不相关"],a:0,e:"成熟企业用制度管开源风险、用政策管专利授权（如开源项目专利承诺），避免权利冲突。"},
+{m:"gonggong",q:"技术经理人（高级）的角色定位更接近于？",o:["能统筹技术、资本、法律与产业资源的转化战略顾问与项目总负责人","资深信息登记员","专职会议组织者","专利证书保管员"],a:0,e:"高级层级要求主导重大项目、设计交易与金融方案、建设区域或行业转化生态。"},
+{m:"gonggong",q:"专利密集型产业的判断与培育，对区域经济工作的意义是？",o:["识别专利产出与经济贡献高的产业，作为招商、政策与金融资源倾斜的依据","只是统计口号没有实务用途","意味着限制其他产业发展","由企业自行认定即可"],a:0,e:"专利密集型产业目录与核算为产业政策提供依据，高级经理人要会用它做区域转化规划。"},
+{m:"gonggong",q:"企业遭遇海外专利诉讼时的总体应对框架是？",o:["法律应诉、商业谈判、技术规避与供应链调整多线并行，并评估和解与许可的成本边界","一律不应诉等缺席判决","立即停产并退出全部市场","只发声明谴责对方"],a:0,e:"海外诉讼是综合战：应诉、谈判、规避、无效与商业安排同步推进，按成本收益决策。"},
+{m:"gonggong",q:"转化生态建设中，高级技术经理人最应补齐的系统能力是？",o:["链接高校、企业、金融、法律与政府资源并设计可持续的合作机制","亲自包办所有环节的执行细节","只专注单一企业的单一项目","只做政策宣讲"],a:0,e:"高级价值在“搭台”：让多方资源在机制下持续成交，而不是靠个人关系做一单算一单。"},
+
+/* ---------- 政策法规模块（高级） ---------- */
+{m:"zhengce",q:"《巴黎公约》确立的国民待遇原则是指？",o:["成员国国民在工业产权保护方面，在其他成员国应享有与该国国民同等的待遇","外国人一律优先于本国人受保护","专利只保护本国国民","成员国之间自动相互承认授权"],a:0,e:"国民待遇、优先权和独立性原则是巴黎公约三大支柱，也是国际专利布局的制度基础。"},
+{m:"zhengce",q:"TRIPS 协议对成员的基本要求是？",o:["为专利等知识产权设定最低保护标准，并要求提供执法保障","要求所有成员专利法完全一致","取消发展中国家的保护义务","只保护商标不保护专利"],a:0,e:"TRIPS 设定最低标准而非统一法，各成员可在框架内结合国情立法，中国专利制度与之衔接。"},
+{m:"zhengce",q:"专利权用尽（权利用尽）原则指的是？",o:["专利产品经专利权人或其许可的人首次合法售出后，购买者再使用、转售该产品不再受专利权控制","专利权到期后自动续展","专利权人用尽权利后可以再收费一次","只适用于进口产品"],a:0,e:"权利用尽解决合法售出产品的后续流通问题，是平衡权利人利益与商品流通秩序的重要原则。"},
+{m:"zhengce",q:"我国对知识产权对外转让涉及国家安全的审查，重点对象是？",o:["向外国组织或个人转让专利权等知识产权且可能影响国家安全与重要技术外流的情形","所有国内企业之间的转让","个人之间的商标转让","一切技术咨询合同"],a:0,e:"知识产权对外转让审查办法对专利权、集成电路布图设计等向外国转让设置安全审查，高级跨境交易必须前置评估。"},
+{m:"zhengce",q:"限制出口与禁止出口技术目录管理的实务要点是？",o:["拟出口技术先对照目录定性：禁止类不得出口、限制类须取得许可，专利转让与许可均在管理范围内","目录只管货物不管技术","查目录是出口之后补办的手续","目录多年不变无需关注更新"],a:0,e:"技术出口合规先行：目录定性错误可能导致合同无效与行政责任，高级项目要把合规审查放在签约前。"},
+{m:"zhengce",q:"标准必要专利权人在标准制定过程中负有的典型义务是？",o:["及时披露其必要专利并作出 FRAND 许可承诺（依标准组织政策）","必须免费许可所有实施者","可以隐瞒专利待标准实施后再主张高额索赔","披露后即丧失专利权"],a:0,e:"披露与 FRAND 承诺是 SEP 制度运行的基础，事后“专利伏击”在多国司法与执法中受到否定评价。"},
+{m:"zhengce",q:"强制许可制度在国际规则（TRIPS）与我国法中的共同限制是？",o:["主要限于特定法定情形，实施范围与期限受授权目的限制，并应向权利人支付合理报酬","可以任意扩大到所有专利","实施者无需付费","一经颁发永不终止"],a:0,e:"强制许可是受严格约束的例外工具，高级实务中多作为谈判背景与公共利益兜底，而非日常交易手段。"},
+{m:"zhengce",q:"知识产权领域反垄断执法的分析框架通常关注？",o:["相关市场界定、市场支配地位以及许可安排是否排除限制竞争","只要有专利就构成垄断","许可费高低由执法机关直接定价","中小企业不受反垄断法约束"],a:0,e:"拥有知识产权本身不等于具有市场支配地位，执法看的是具体行使行为对竞争的影响。"},
+{m:"zhengce",q:"药品专利期限补偿（专利权期限延长）制度设计的主要平衡目标是？",o:["补偿新药因上市审批占用的专利保护时间，同时以申请时限与补偿上限防止过度延长独占","让所有药品专利自动延长十年","取消仿制药上市通道","只适用于进口药品"],a:0,e:"药品期限补偿有严格的适用条件、上限与申请程序，是创新激励与公众可及性之间的制度平衡。"},
+{m:"zhengce",q:"涉及国家出资科研项目的成果转化，合规上要特别注意？",o:["财政资金形成的科技成果，其使用、收益与处置应遵守成果转化法及项目管理规定，重大事项履行报告或审批程序","成果一律归项目负责人个人处置","无需向单位报告即可对外签约","收益分配不受任何制度约束"],a:0,e:"国家出资成果有特殊的权属与处置规则，高级经理人要核查项目来源与单位制度，避免越权处分。"},
+{m:"zhengce",q:"跨境许可合同中选择适用法律与争议解决地时，高级实务的考量重点是？",o:["判决/裁决的可执行性、目标法域的知识产权规则与双方履约成本","随便选一个第三国法律显得中立即可","只看哪边律师费便宜","争议解决条款可有可无"],a:0,e:"跨境合同的争议条款决定维权成本与结果可执行性，应结合资产所在地与承认执行安排审慎设计。"},
+{m:"zhengce",q:"数据知识产权登记与保护制度（试点层面）对转化工作的提示是？",o:["数据类成果的权利确认与流通规则尚在探索，交易时更要靠合同明确权属、使用范围与合规责任","数据已经和专利完全一样有统一确权法","登记后数据即可任意交易不受个保法约束","数据成果不需要任何管理"],a:0,e:"数据要素规则仍在建设中，高级实务以合同与合规双轨管理数据类成果，避免把试点登记当成万能确权。"},
+{m:"zhengce",q:"专利无效宣告程序中，口头审理与证据规则对交易实务的启示是？",o:["重大交易前应评估目标专利经受无效挑战的能力，必要时引入稳定性检索与法律意见","无效程序与交易定价无关","任何专利都经不起无效，不必评估","口头审理结果可以私下协商"],a:0,e:"无效风险是专利定价的折减因子，高级交易用稳定性意见书把不确定性转化为价格与担保条款。"},
+{m:"zhengce",q:"地理标志与商标、专利在农产品成果转化中的协同方式是？",o:["以地理标志/商标做品牌溢价、以专利做技术与加工工艺保护，分工协同提升农产品附加值","地理标志可以替代一切技术保护","农产品不需要知识产权","三者只能选其一"],a:0,e:"农业转化是组合打法：品种、技术、品牌分别用不同工具保护，高级经理人要会做整体方案。"},
+{m:"zhengce",q:"企业把核心专利转移至关联公司或离岸架构时，高级层面必须评估的风险不包括？",o:["关联交易的税务与转让定价、对外转让审查以及执行与破产隔离效果","转移后证书的装订方式","核心资产流失与控制权风险","许可回授安排的稳定性"],a:0,e:"架构性转移牵涉税务、安全审查与控制权，是高级交易设计问题，绝非换个权利人登记那么简单。"},
+
+/* ---------- 实务技能模块（高级） ---------- */
+{m:"shiwu",q:"专利资产证券化交易结构中，SPV（特殊目的载体）的核心作用是？",o:["实现基础资产与原始权益人的风险隔离，保障现金流归集与偿付顺序","帮原始权益人逃避全部债务","代替评估机构定价","负责专利的日常运营销售"],a:0,e:"破产隔离是证券化结构设计的灵魂：基础资产真实出售或信托给 SPV，与出表方风险切割。"},
+{m:"shiwu",q:"专利运营基金的典型运作模式是？",o:["募集资金收购专利资产，通过许可、转让、诉讼和解等方式实现收益并向投资者分配","只买专利收藏不做运营","用基金资金缴纳年费即可盈利","保证投资者固定高收益无风险"],a:0,e:"运营基金靠专业团队把专利货币化，收益不确定、周期长，属于高风险专业投资，高级经理人要懂其收益来源与风险。"},
+{m:"shiwu",q:"跨境并购专利尽调中，最容易埋雷的是？",o:["目标公司核心专利的发明人权属链条断裂（如离职员工未签转让文件）与未披露的独占许可","目标公司的宣传册印制质量","目标公司官网的更新频率","发明人的国籍构成"],a:0,e:"权属链条与隐性负担是跨境并购的两大雷区，要逐件核查雇佣与转让文件、许可登记与诉讼记录。"},
+{m:"shiwu",q:"全球专利布局路径选择（PCT 与巴黎公约直接申请）的决策依据是？",o:["目标国家数量、决策时间需求与预算：国家多且需延后决策选 PCT，目标明确且少可选直接申请","PCT 永远更便宜","直接申请永远更快授权到所有国家","两者没有任何区别"],a:0,e:"PCT 用费用换时间和决策窗口，直接申请适合目标明确的少数国家，高级布局要算总账。"},
+{m:"shiwu",q:"专利组合许可（Portfolio Licensing）谈判中，被许可方最应核查的是？",o:["组合中真正覆盖其产品的有效专利占比与已到期/无效专利的剔除机制","组合专利的总件数越多越好直接签字","许可方提供的全部宣传数据","组合中证书的平均年龄"],a:0,e:"组合许可按包收费，必须防止为大量无关或失效专利付费，合同中应设清单更新与费用调整条款。"},
+{m:"shiwu",q:"以专利诉讼促成许可（诉讼—许可联动）策略的适用前提是？",o:["自有专利稳定性强、侵权证据扎实且已做好被反诉无效与舆论应对预案","专利是否稳定无所谓先告再说","诉讼一定能赢无需评估","诉讼只是吓唬对方不用真立案"],a:0,e:"诉讼是高级运营工具而非首选：成本高、反噬强，必须先做稳定性与证据的压力测试。"},
+{m:"shiwu",q:"产业专利导航升级为区域招商决策工具时，关键产出是？",o:["产业链专利分布图谱、企业梯队清单与目标企业的引进可行性评估","专利数量新闻稿","展厅用的装饰图表","发明人通讯录"],a:0,e:"高级导航直接服务“招什么企业、补哪段链条”，把专利数据转成招商目标清单与谈判依据。"},
+{m:"shiwu",q:"重大技术作价入股项目中，股权结构设计要重点防范？",o:["出资专利后续被无效或贬值时的股权调整、回购与补足机制缺失","股东人数太多不好记名字","公司章程页数过少","注册资本数字不吉利"],a:0,e:"专利出资的价值会变，协议中要预设价值变动、竞业与退出安排，否则纠纷几乎不可避免。"},
+{m:"shiwu",q:"风险投资机构对拟投企业做专利尽调时，最看重的判断是？",o:["专利能否真正构成竞争壁垒并支撑估值叙事，而非单纯数量","专利数量是否达到三位数","证书是否全部为发明专利","发明人是否都是博士"],a:0,e:"投资尽调看壁垒与自由实施空间：核心专利覆盖产品、对手难绕开、自家产品不侵权，才撑得起估值。"},
+{m:"shiwu",q:"专利资产处置（如国有高校专利转让）中，挂牌交易与协议定价的适用关系是？",o:["能公开交易的优先通过技术交易市场挂牌，协议定价须履行评估/公示等程序保证公允与合规","协议定价永远优先且无需公示","挂牌只是形式，价格仍可私下随意改","处置价格越低越容易促成交易越好"],a:0,e:"国有资产类成果处置重程序合规：评估、公示、进场交易是防止资产流失的制度安排。"},
+{m:"shiwu",q:"设计“许可＋股权”混合对价交易时，主要目的是？",o:["让技术方分享企业成长收益，同时降低受让方当期现金支出，实现长期利益绑定","把合同写得更复杂显得专业","规避全部税费","让专利权自动增值"],a:0,e:"混合对价是高级交易结构工具：现金解决当下、股权绑定未来，但要同步设计估值与退出条款。"},
+{m:"shiwu",q:"专利价值评估结论用于法庭/仲裁时，评估报告最经不起推敲的是？",o:["收益预测缺乏合同、订单等证据支撑，参数取值无来源说明","报告页数不够多","没有彩色图表","评估师签名不美观"],a:0,e:"司法场景看证据链：收益口径、费率与折现率都要有可验证依据，拍脑袋参数会被对方专家击穿。"},
+{m:"shiwu",q:"企业专利组合年度体检（组合审计）应输出的核心决策清单是？",o:["维持、放弃、许可、转让、补充布局五类处置建议及预算测算","把所有专利都评为高价值","只输出证书到期日历","建议全部专利立即出售"],a:0,e:"组合审计把管理变成决策：每年淘汰低效维持成本，把预算投向有运营价值的资产。"},
+{m:"shiwu",q:"主导大型供需对接活动（高级层面）成败的关键不在规模而在？",o:["会前需求与成果的精准预匹配、会中深度洽谈安排与会后跟踪促成机制","参会人数越多越好","会场布置是否豪华","媒体报道的数量"],a:0,e:"高级对接拼的是转化率：预匹配、闭门洽谈、会后专人跟踪，才是把活动流量变成交量的关键。"},
+{m:"shiwu",q:"技术秘密与专利组合保护的决策框架是？",o:["易被反向工程的申请专利、难被发现的工艺诀窍留作技术秘密，并用制度隔离两类信息的接触范围","全部申请专利最安全","全部保密最安全","由发明人个人喜好决定"],a:0,e:"组合保护按可发现性与生命周期决策，并配套分级保密制度，是高级知识产权管理的基本功。"},
+
+/* ---------- 能力提升模块（高级） ---------- */
+{m:"nengli",q:"知识产权质押融资风险处置（专利被处置变现）时，价值通常大幅折损的主要原因是？",o:["处置场景下买方有限、时间受限且专利与原企业技术体系剥离后协同价值丧失","专利证书在处置时自动失效","银行故意压价没有原因","处置的专利一律是假专利"],a:0,e:"这解释了质押率为何保守：专利价值高度依赖实施主体与组合环境，单独拍卖很难复现经营价值。"},
+{m:"nengli",q:"高级技术经理人设计区域专利转化基金时，应优先确定的要素是？",o:["基金定位与投向、政府与社会资本配比、投决与退出机制及与本地产业的协同方式","基金的宣传口号","办公室的装修风格","新闻发布会的时间"],a:0,e:"基金是资源配置工具，先定机制与产业协同，再谈规模；脱离产业的转化基金难以为继。"},
+{m:"nengli",q:"国际技术转移中，面对不同法域的合规要求，高级经理人的工作方法是？",o:["建立合规清单并引入目标国本地律师与税务顾问协同审查，关键节点设置合规闸口","用中国的合同模板走遍全球","合规问题等出了纠纷再处理","只依赖对方提供的法律意见"],a:0,e:"跨境合规靠流程与本地专业力量，出口管制、税务、外汇与数据问题都要在签约与付款节点前过闸。"},
+{m:"nengli",q:"当重大转化交易陷入僵局且涉及多方利益时，高级层面的破局手段不包括？",o:["私下向一方泄露另一方的底价促成成交","引入调解或行业组织协调","分拆交易分期推进，先易后难建立信任","用选择权/对赌式安排桥接分歧"],a:0,e:"泄露底价违反职业道德且摧毁信任；高级破局靠机制设计与第三方协调，把分歧拆开逐个解决。"},
+{m:"nengli",q:"技术经理人机构（公司）的核心竞争力建设，高级层面应抓的是？",o:["专业人才梯队、可复用的评估与尽调方法论、行业资源网络与成功案例口碑","租更大的办公室","囤积更多的专利证书复印件","把服务价格降到最低"],a:0,e:"机构竞争力是方法论＋人才＋网络＋信誉的乘积，低价竞争不可持续。"},
+{m:"nengli",q:"参与制定地方专利转化政策时，高级技术经理人最有价值的贡献是？",o:["用一线交易数据与堵点案例为政策提供实证依据，并评估政策工具的可操作性","替政策文件润色文字","保证政策对自己机构最有利","只提增加补贴额度的建议"],a:0,e:"一线实证是政策制定的稀缺输入：哪里卡、卡多久、什么工具真有效，要用数据说话。"},
+{m:"nengli",q:"重大侵权纠纷危机中，技术经理人协助企业的优先动作是？",o:["固定证据、评估涉案专利稳定性与侵权比对、制定应诉与和解的双轨方案并统一对外口径","立即公开承认侵权求轻判","删除全部相关产品数据","在社交媒体上与对方对骂"],a:0,e:"危机处理先稳证据与法律评估，再谈攻防与传播；情绪化应对只会放大损失。"},
+{m:"nengli",q:"培养技术经理人团队时，高级经理人的有效做法是？",o:["用真实项目带教并建立案例复盘库，让新人从协助评估、对接逐步到独立负责","让新人只做行政事务三年后再说","把所有客户资源牢牢抓在自己手里","禁止团队成员对外交流"],a:0,e:"人才梯队靠项目带教与复盘沉淀，这也是培训指南设置分级培养的初衷。"},
+{m:"nengli",q:"知识产权运营收益分配机制设计（机构内部）要兼顾的是？",o:["经办人激励、机构持续投入与风险准备金，避免只追求短期成交佣金而忽视合规与售后","谁签单谁拿走全部佣金","分配越简单越好不留任何记录","收益全部用于扩张不留风险准备"],a:0,e:"分配机制决定行为导向：只奖成交会诱发夸大与隐瞒，必须把合规与落地效果纳入考核。"},
+{m:"nengli",q:"高级层面做专利转化趋势研判时，较可靠的信息组合是？",o:["专利数据、产业数据、政策动向与一线交易反馈的交叉验证","只看自媒体热点文章","只听单个企业的感受","只看去年的统计年鉴"],a:0,e:"研判要多源交叉：一线交易反馈能最早感知需求变化，数据与政策提供结构性验证。"},
+{m:"nengli",q:"主导高校与龙头企业共建联合实验室时，知识产权条款谈判的制高点是？",o:["背景知识产权清单、合作成果归属与企业优先实施/购买权的对价安排","实验室的命名权","谁负责采购设备","会议纪要的格式"],a:0,e:"联合实验室的长期纠纷多源于成果归属与优先权对价不清，签约时把清单与规则定死最重要。"},
+{m:"nengli",q:"技术经理人职业声誉受损最常见的情形是？",o:["为促成交易夸大专利价值或隐瞒重大瑕疵，事后被市场反噬","收费略高于同行","回复消息不够快","不参加行业聚会"],a:0,e:"转化行业靠信任吃饭，一次失信的传播成本远高于一单佣金，高级经理人更要守住这条线。"},
+{m:"nengli",q:"设计专利转化公共服务平台时，高级层面应坚持的产品逻辑是？",o:["以成交与落地为导向设计供需匹配、评估、金融、法务的一站式服务闭环","以信息发布数量为唯一指标","平台只做展示不做服务","功能越多越好不计使用成本"],a:0,e:"平台价值不在信息堆积，而在服务闭环与撮合效率，要用成交数据检验设计。"},
+{m:"nengli",q:"面对一项估值分歧极大但战略价值高的专利，高级交易设计可采用？",o:["分段对价：基础价款＋与实施效果挂钩的或有对价（里程碑/提成/股权）","强制按卖方要价成交","放弃交易不做任何尝试","让双方各自找媒体施压"],a:0,e:"或有对价把“对未来判断的分歧”转化为按结果付费的结构，是高级定价难题的标准解法。"},
+{m:"nengli",q:"高级技术经理人年度工作的价值自检，最核心的问题是？",o:["经手的成果有多少真正落地实施并产生经济与社会效益，而非只看签约金额","今年参加了多少场活动","认识了多少新客户","写了多少份报告"],a:0,e:"培训指南对高级层级的定位就是看实效：落地率与产业贡献才是高级经理人的成绩单。"}
+];
+
+/* 层级配置：初级 BANK（含补充题）+ 中级 BANK_MID + 高级 BANK_SENIOR */
+var LEVELS={
+  junior:{name:"初级",bank:BANK,desc:"打基础：专利与转化概念、政策法规要点、基础实务流程与职业道德。适合零基础备考和入门上岗。"},
+  mid:{name:"中级",bank:BANK_MID,desc:"能独立做项目：价值评估、FTO 分析、交易结构与谈判、专利金融与跨境许可。适合有实务经验者晋升备考。"},
+  senior:{name:"高级",bank:BANK_SENIOR,desc:"主导重大项目：专利战略、组合运营、证券化与运营基金、国际规则与区域转化生态。适合资深从业者备考。"}
+};
+var currentLevel="junior";
+function activeBank(){return LEVELS[currentLevel].bank;}
+
+var LETTERS=["A","B","C","D"];
+var state=null;
+
+function shuffle(arr){var a=arr.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+function prepare(list){
+  return shuffle(list).map(function(item){
+    var order=shuffle(item.o.map(function(_,i){return i;}));
+    return {m:item.m,q:item.q,e:item.e,
+      opts:order.map(function(i){return item.o[i];}),
+      correct:order.indexOf(item.a), user:null, flagged:false};
+  });
+}
+function show(id){
+  ["view-home","view-exam","view-result"].forEach(function(v){document.getElementById(v).classList.add("hidden");});
+  document.getElementById(id).classList.remove("hidden");
+  document.body.classList.toggle("in-exam",id==="view-exam");
+  closePalette();
+  window.scrollTo(0,0);
+}
+function openPalette(){
+  document.getElementById("paletteCard").classList.add("open");
+  document.getElementById("paletteScrim").classList.add("show");
+}
+function closePalette(){
+  var c=document.getElementById("paletteCard"),s=document.getElementById("paletteScrim");
+  if(c)c.classList.remove("open");
+  if(s)s.classList.remove("show");
+}
+function isMobilePalette(){return window.innerWidth<=860;}
+function fmtTime(s){s=Math.max(0,s);var m=Math.floor(s/60),ss=s%60;return (m<10?"0":"")+m+":"+(ss<10?"0":"")+ss;}
+
+function startExam(){
+  var qs=prepare(activeBank()).slice(0,50);
+  state={mode:"exam",title:"模拟考试 · 专利转化运用技术经理人（"+LEVELS[currentLevel].name+"）",qs:qs,idx:0,total:qs.length,remain:90*60,used:0,timer:null,finished:false};
+  begin();
+}
+function startPractice(key){
+  var list=activeBank().filter(function(x){return x.m===key;});
+  var qs=prepare(list);
+  state={mode:"practice",title:"章节练习 · "+MODS[key].name,qs:qs,idx:0,total:qs.length,remain:null,used:0,timer:null,finished:false,practiceKey:key};
+  begin();
+}
+function begin(){
+  show("view-exam");
+  document.getElementById("examTitle").textContent=state.title;
+  document.getElementById("btnSubmit").textContent = state.mode==="exam" ? "交卷看成绩" : "结束练习看成绩";
+  document.getElementById("btnSubmitTop").textContent = state.mode==="exam" ? "交卷" : "结束";
+  buildPalette(); renderQ(); startTimer();
+}
+function startTimer(){
+  stopTimer(); var t0=Date.now();
+  state.timer=setInterval(function(){
+    state.used=Math.floor((Date.now()-t0)/1000);
+    if(state.mode==="exam"){
+      state.remain=90*60-state.used;
+      var el=document.getElementById("timer");
+      el.textContent=fmtTime(state.remain);
+      el.classList.toggle("low",state.remain<=300);
+      if(state.remain<=0){finish();}
+    }else{
+      document.getElementById("timer").textContent="已用 "+fmtTime(state.used);
+    }
+  },500);
+  document.getElementById("timer").textContent = state.mode==="exam" ? "90:00" : "已用 00:00";
+  document.getElementById("timer").classList.remove("low");
+}
+function stopTimer(){if(state&&state.timer){clearInterval(state.timer);state.timer=null;}}
+
+function renderQ(){
+  var q=state.qs[state.idx];
+  document.getElementById("qMod").textContent=MODS[q.m].name+" · 第 "+(state.idx+1)+" 题";
+  document.getElementById("qType").textContent="单选题 · 2 分";
+  document.getElementById("qFlagState").textContent=q.flagged?"★ 已标记":"";
+  document.getElementById("qText").textContent=q.q;
+  var box=document.getElementById("qOpts"); box.innerHTML="";
+  var fb=document.getElementById("feedback"); fb.className="feedback"; fb.innerHTML="";
+  q.opts.forEach(function(txt,i){
+    var b=document.createElement("button"); b.className="opt"+(q.user===i?" sel":"");
+    if(state.mode==="practice"&&q.user!==null){
+      if(i===q.correct)b.className="opt right";
+      else if(q.user===i)b.className="opt wrong";
+    }
+    b.innerHTML="<span class='k'>"+LETTERS[i]+"</span><span></span>";
+    b.children[1].textContent=txt;
+    b.onclick=function(){choose(i);};
+    box.appendChild(b);
+  });
+  if(state.mode==="practice"&&q.user!==null)showFeedback(q);
+  document.getElementById("progBar").style.width=((countDone())/state.total*100)+"%";
+  document.getElementById("progText").textContent=countDone()+" / "+state.total+" 已答";
+  document.getElementById("btnPrev").disabled=state.idx===0;
+  document.getElementById("btnNext").textContent=state.idx===state.total-1?"最后一题":"下一题";
+  var mp=document.getElementById("mbPrev"),mn=document.getElementById("mbNext"),mb=document.getElementById("mbPalette");
+  if(mp)mp.disabled=state.idx===0;
+  if(mp)mp.style.opacity=state.idx===0?".45":"1";
+  if(mn)mn.textContent=state.idx===state.total-1?"最后一题":"下一题 ›";
+  if(mb)mb.textContent="答题卡 "+countDone()+"/"+state.total;
+  var mf=document.getElementById("mbFlag");
+  if(mf){mf.textContent=q.flagged?"★ 已标记":"☆ 标记";mf.classList.toggle("active",!!q.flagged);}
+  paintPalette();
+}
+function showFeedback(q){
+  var fb=document.getElementById("feedback");
+  var ok=q.user===q.correct;
+  fb.className="feedback show "+(ok?"ok":"no");
+  fb.innerHTML=(ok?"✅ 回答正确！":"❌ 回答错误。正确选项是 "+LETTERS[q.correct]+"。")+"<br>解析："+q.e;
+}
+function choose(i){
+  if(!state||state.finished)return;
+  var q=state.qs[state.idx];
+  q.user=i;
+  if(state.mode==="practice"){
+    renderQ();
+    setTimeout(function(){ if(state&&!state.finished&&state.idx<state.total-1&&state.qs[state.idx].user!==null){state.idx++;renderQ();window.scrollTo(0,0);} },1600);
+    return;
+  }
+  renderQ();
+  setTimeout(function(){
+    if(state&&!state.finished&&state.idx<state.total-1){state.idx++;renderQ();window.scrollTo(0,0);}
+  },420);
+}
+function countDone(){return state.qs.filter(function(q){return q.user!==null;}).length;}
+function buildPalette(){
+  var p=document.getElementById("palette"); p.innerHTML="";
+  state.qs.forEach(function(q,i){
+    var b=document.createElement("button"); b.textContent=i+1;
+    b.onclick=function(){state.idx=i;renderQ();closePalette();window.scrollTo(0,0);};
+    p.appendChild(b);
+  });
+}
+function paintPalette(){
+  var p=document.getElementById("palette").children;
+  state.qs.forEach(function(q,i){
+    p[i].className=(q.user!==null?"done":"")+(i===state.idx?" cur":"")+(q.flagged?" flagged":"");
+  });
+}
+function askSubmit(){
+  if(!state)return;
+  closePalette();
+  var blank=state.total-countDone();
+  document.getElementById("submitInfo").textContent="共 "+state.total+" 题，已答 "+countDone()+" 题，未答 "+blank+" 题。"+(blank>0?"未答题目按错误计分。":"")+"交卷后将立即显示分数，确定交卷吗？";
+  document.getElementById("submitModal").classList.add("show");
+}
+function finish(){
+  if(!state||state.finished)return;
+  state.finished=true; stopTimer();
+  document.getElementById("submitModal").classList.remove("show");
+  var right=state.qs.filter(function(q){return q.user===q.correct;}).length;
+  var blank=state.qs.filter(function(q){return q.user===null;}).length;
+  var score=right*2;
+  if(state.mode==="practice"){ score=Math.round(right/state.total*100); }
+  var passed=score>=60;
+  var comment;
+  if(score>=90)comment="优秀！你对四个模块的掌握已经很扎实，保持状态，正式考核（笔试＋案例分析）也很有希望一次通过。";
+  else if(score>=80)comment="良好！基础很稳，再把错题涉及的知识点复习一遍，成绩还能再上一个台阶。";
+  else if(score>=60)comment="已达及格线。建议重点回看下面的错题和解析，把薄弱模块用章节练习再补一轮。";
+  else comment="这次未达及格线（60 分）。别灰心：先按四个模块做章节练习，重点看错题解析，再重新模考一次。";
+  document.getElementById("resTitle").textContent=state.title+" · 成绩";
+  document.getElementById("resScore").textContent=score;
+  var pp=document.getElementById("resPass");
+  pp.textContent=passed?"✓ 及格":"✗ 未及格（及格线 60 分）"; pp.className="pass "+(passed?"y":"n");
+  document.getElementById("resComment").textContent=comment;
+  document.getElementById("resRight").textContent=right;
+  document.getElementById("resWrong").textContent=state.total-right-blank;
+  document.getElementById("resBlank").textContent=blank;
+  document.getElementById("resTime").textContent=fmtTime(state.used);
+  document.getElementById("btnAgain").textContent=state.mode==="exam"?"再来一套（重新抽题）":"重新练习本章";
+  state.lastScore=score; state.lastRight=right;
+  renderReview(true);
+  show("view-result");
+}
+function renderReview(wrongOnly){
+  var box=document.getElementById("reviewBox");
+  var items=state.qs.map(function(q,i){return {q:q,i:i};}).filter(function(x){return !wrongOnly||x.q.user!==x.q.correct;});
+  var html="<h3 class='secttl'>"+(wrongOnly?"错题回顾（共 "+items.length+" 题）":"全部题目回顾（共 "+items.length+" 题）")+"</h3>";
+  if(items.length===0)html+="<div class='card' style='margin-top:12px'>🎉 全部答对，没有错题！</div>";
+  items.forEach(function(x){
+    var q=x.q;
+    html+="<div class='reviewitem'><div class='rq'>"+(x.i+1)+". ["+MODS[q.m].short+"] "+escapeHtml(q.q)+"</div>"
+      +"<div class='ansline'>你的选项：<span class='yours'>"+(q.user===null?"（未作答）":LETTERS[q.user]+"．"+escapeHtml(q.opts[q.user]))+"</span></div>"
+      +"<div class='ansline'>正确选项：<span class='corr'>"+LETTERS[q.correct]+"．"+escapeHtml(q.opts[q.correct])+"</span></div>"
+      +"<div class='exp'>解析："+escapeHtml(q.e)+"</div></div>";
+  });
+  box.innerHTML=html;
+}
+function escapeHtml(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+
+/* 首页：层级选择 + 模块列表 */
+function setLevel(key){
+  currentLevel=key;
+  buildHome();
+}
+function buildHome(){
+  var lv=LEVELS[currentLevel], bank=lv.bank;
+  document.getElementById("bankCount").textContent=bank.length;
+  document.getElementById("heroTag").textContent="广东省 · "+lv.name+" · 2026 备考";
+  document.getElementById("heroTitle").textContent="专利转化运用技术经理人（"+lv.name+"）刷题";
+  document.getElementById("btnStartExam").textContent="开始模拟考试（"+lv.name+"）";
+  var lg=document.getElementById("lvlGrid"); lg.innerHTML="";
+  Object.keys(LEVELS).forEach(function(k){
+    var L=LEVELS[k];
+    var b=document.createElement("button"); b.className="lvlbtn"+(k===currentLevel?" on":"");
+    b.innerHTML="<b>"+L.name+(k===currentLevel?" ✓ 当前":"")+"</b><small>"+L.desc+"</small><span class='lc'>题库 "+L.bank.length+" 题 ›</span>";
+    b.onclick=function(){setLevel(k);};
+    lg.appendChild(b);
+  });
+  var list=document.getElementById("modList"); list.innerHTML="";
+  Object.keys(MODS).forEach(function(k){
+    var n=bank.filter(function(x){return x.m===k;}).length;
+    var b=document.createElement("button"); b.className="modbtn";
+    b.innerHTML="<span><b>"+MODS[k].name+"</b><small>"+MODS[k].desc+"</small></span><span class='cnt'>"+n+" 题 ›</span>";
+    b.onclick=function(){startPractice(k);};
+    list.appendChild(b);
+  });
+}
+document.getElementById("btnStartExam").onclick=startExam;
+document.getElementById("btnPrev").onclick=function(){if(state&&state.idx>0){state.idx--;renderQ();}};
+document.getElementById("btnNext").onclick=function(){if(state&&state.idx<state.total-1){state.idx++;renderQ();}};
+document.getElementById("btnFlag").onclick=function(){if(state){state.qs[state.idx].flagged=!state.qs[state.idx].flagged;renderQ();}};
+document.getElementById("btnSubmit").onclick=askSubmit;
+document.getElementById("btnSubmitTop").onclick=askSubmit;
+document.getElementById("btnCancelSubmit").onclick=function(){document.getElementById("submitModal").classList.remove("show");};
+document.getElementById("btnConfirmSubmit").onclick=finish;
+document.getElementById("btnQuit").onclick=function(){stopTimer();state=null;show("view-home");};
+document.getElementById("btnReviewWrong").onclick=function(){renderReview(true);document.getElementById("reviewBox").scrollIntoView({behavior:"smooth"});};
+document.getElementById("btnReviewAll").onclick=function(){renderReview(false);document.getElementById("reviewBox").scrollIntoView({behavior:"smooth"});};
+document.getElementById("btnAgain").onclick=function(){ if(state&&state.mode==="practice"){startPractice(state.practiceKey);} else {startExam();} };
+document.getElementById("btnHome2").onclick=function(){state=null;show("view-home");};
+document.getElementById("mbPrev").onclick=function(){if(state&&state.idx>0){state.idx--;renderQ();window.scrollTo(0,0);}};
+document.getElementById("mbNext").onclick=function(){if(state&&state.idx<state.total-1){state.idx++;renderQ();window.scrollTo(0,0);}};
+document.getElementById("mbPalette").onclick=openPalette;
+document.getElementById("mbFlag").onclick=function(){if(state){state.qs[state.idx].flagged=!state.qs[state.idx].flagged;renderQ();}};
+document.getElementById("btnClosePalette").onclick=closePalette;
+document.getElementById("paletteScrim").onclick=closePalette;
+window.addEventListener("resize",function(){if(!isMobilePalette())closePalette();});
+buildHome();
+</script>
+</body>
+</html>
